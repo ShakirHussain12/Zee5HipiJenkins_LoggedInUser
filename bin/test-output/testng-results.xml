@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-23T11:28:33Z" name="HIPI" finished-at="2022-12-23T11:30:11Z" duration-ms="97158">
+    <groups>
+    </groups>
+    <test started-at="2022-12-23T11:28:33Z" name="AndroidHiPiNeo" finished-at="2022-12-23T11:30:11Z" duration-ms="97158">
+      <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP1">
+        <test-method is-config="true" signature="AppLaunch()[pri:0, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP1@4f2c9ba6]" started-at="2022-12-23T16:58:40Z" name="AppLaunch" finished-at="2022-12-23T16:58:48Z" duration-ms="8511" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AppLaunch -->
+        <test-method signature="PostScreenNewP1TCs(java.lang.String)[pri:11, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP1@4f2c9ba6]" started-at="2022-12-23T16:58:48Z" name="PostScreenNewP1TCs" finished-at="2022-12-23T17:00:07Z" duration-ms="78816" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Guest]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PostScreenNewP1TCs -->
+        <test-method is-config="true" signature="tearDownApp()[pri:0, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP1@4f2c9ba6]" started-at="2022-12-23T17:00:07Z" name="tearDownApp" finished-at="2022-12-23T17:00:11Z" duration-ms="3368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownApp -->
+      </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP1 -->
+    </test> <!-- AndroidHiPiNeo -->
+  </suite> <!-- HIPI -->
+</testng-results>

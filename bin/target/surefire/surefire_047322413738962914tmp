@@ -1,0 +1,8 @@
+#surefire_0
+#Wed Jul 27 14:56:05 IST 2022
+user.dir=C\:\\Users\\user\\.jenkins\\workspace\\HipiAndroid
+suiteXmlFile=Android_HiPi_Neo
+localRepository=C\:\\Users\\user\\.m2\\repository
+rp.launch=Android_HiPi_Neo
+userType=NonSubscribedUser
+basedir=C\:\\Users\\user\\.jenkins\\workspace\\HipiAndroid
