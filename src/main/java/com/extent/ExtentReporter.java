@@ -107,7 +107,7 @@ public class ExtentReporter implements ITestListener  {
 	public void initExtentDriver() {
 		if (getPlatformFromtools().equals("Web")) {
 			src = ((TakesScreenshot) getWebDriver()).getScreenshotAs(org.openqa.selenium.OutputType.FILE);
-		} else if (getPlatformFromtools().equals("HIPI") || getPlatform().equals("BrowserStack") || getPlatform().equals("IOSBrowserStack") ) {
+		} else if (getPlatformFromtools().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged") ) {
 			src = ((TakesScreenshot) getDriver()).getScreenshotAs(org.openqa.selenium.OutputType.FILE);
 		}
 		else if (getPlatformFromtools().equals("HIPI_iOS") ) {

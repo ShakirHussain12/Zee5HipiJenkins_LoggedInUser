@@ -50558,7 +50558,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		String Processingtimemilli=Long.toString(processingTime.toMillis());	
 		Time_ExcelUpdate.timeStampNode(Processingtimesec+" seconds " +Processingtimemilli+"  milliSeconds");
 
-				extent.extentLoggerFail("","<b>Processing time: " + processingTime+"<b>");
+				extent.extentLoggerPass("","<b>Processing time: " + processingTime+"<b>");
 	}
 	else {
 		logger.error("User is not able to login With Google");
