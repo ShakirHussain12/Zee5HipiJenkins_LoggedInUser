@@ -86,13 +86,14 @@ public class DriverInstance extends Drivertools {
 				tlDriver.set((AppiumDriver<WebElement>) new IOSDriver<WebElement>(new URL(getremoteUrl()), this.generateiOSCapabilities(Application)));
 				break;
 				
-			case "BrowserStack":
+			case "BrowserStackGuest":
+				tlDriver.set((AppiumDriver<WebElement>) new AndroidDriver<WebElement>(new URL(getBSremoteUrl()),this.generateCapabilitiesbrowserStack(Application)));
+			break;
+			
+			case "BrowserStackLogged":
 				tlDriver.set((AppiumDriver<WebElement>) new AndroidDriver<WebElement>(new URL(getBSremoteUrl()),this.generateCapabilitiesbrowserStack(Application)));
 			break;
 				
-			case "BrowserStackMPWA":
-				tlDriver.set((AppiumDriver<WebElement>) new AndroidDriver<WebElement>(new URL(getBSremoteUrl()),this.generateCapabilitiesbrowserStack(Application)));
-			break;
 				
 			default:
 				throw new SkipException("Incorrect Platform...");

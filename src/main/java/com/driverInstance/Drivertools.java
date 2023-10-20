@@ -314,7 +314,7 @@ public class Drivertools {
 		setPort(Integer.parseInt(getHandler().getproperty("HOST_PORT")));
 		setappTimeOut(Integer.parseInt(getHandler().getproperty("APP_TIMEOUT")));
 		//setremoteUrl("http://" + getHost() + ":" + getPort() + "/wd/hub");
-		if(platform.equalsIgnoreCase("BrowserStack") || platform.equalsIgnoreCase("IOSBrowserStack") || platform.equalsIgnoreCase("BrowserStackMPWA")) {
+		if(platform.equalsIgnoreCase("BrowserStackLogged") || platform.equalsIgnoreCase("IOSBrowserStack") || platform.equalsIgnoreCase("BrowserStackGuest")) {
 			setBSuserID(getHandler().getproperty("userID"));
 			setBSuserKey(getHandler().getproperty("accessKey"));
 			setBSremoteUrl("http://" + getHost() + "/wd/hub");
@@ -331,7 +331,7 @@ public class Drivertools {
 //		System.out.println(getHandler().getproperty(application + "apkfile"));
 		setDriverVersion(getHandler().getproperty("DriverVersion"));
 		
-		if(platform.equalsIgnoreCase("BrowserStack")) {
+		if(platform.equalsIgnoreCase("BrowserStackGuest") || platform.equalsIgnoreCase("BrowserStackLogged")) {
 			setBSappID(getHandler().getproperty("appID"));
 		}else if(platform.equalsIgnoreCase("IOSBrowserStack")) {
 			setBSappID(getHandler().getproperty("iOSappID"));
@@ -391,18 +391,14 @@ public class Drivertools {
 			setENV("Native App");
 			click = false;
 		}
-		else if (getPlatform().equals("BrowserStack")) {
+		else if (getPlatform().equals("BrowserStackGuest")) {
 			setENV("Native App");
 			click = false;
-		} else if (getPlatform().equals("IOSBrowserStack")) {
+		} else if (getPlatform().equals("BrowserStackGuestLogged")) {
 			setENV("Native App");
 			click = false;
-		}else if (getPlatform().equals("BrowserStackMPWA")) {
-			setENV("Chrome Application");
-			click = false;
-		}
 		logger.info("PlatForm :: " + getPlatform());
-		if (Stream.of("Android", "ios", "Web", "MPWA", "TV", "HIPI","HIPI_iOS","iOSWeb","ANDROIDMPWA","BrowserStack","IOSBrowserStack","BrowserStackMPWA").anyMatch(getPlatform()::equals)) {
+		if (Stream.of("Android", "ios", "Web", "MPWA", "TV", "HIPI","HIPI_iOS","iOSWeb","ANDROIDMPWA","BrowserStackGuest","BrowserStackGuestLogged").anyMatch(getPlatform()::equals)) {
 			setHandler(new PropertyFileReader("properties/ExecutionControl.properties"));
 			if (getHandler().getproperty(getTestName()).equals("Y") && (getRunMode().contentEquals(getTestName()))
 					|| (getRunMode().contentEquals("Suites"))) {

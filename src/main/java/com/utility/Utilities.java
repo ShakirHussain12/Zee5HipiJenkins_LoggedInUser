@@ -144,7 +144,7 @@ public class Utilities extends ExtentReporter {
 		if (getPlatform().equals("Web")) {
 			wait = new WebDriverWait(getWebDriver(), getTimeout());
 			js = (JavascriptExecutor) getWebDriver();
-		} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("BrowserStack") || getPlatform().equals("IOSBrowserStack")) {
+		} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")) {
 			System.out.println("::::::::::::::::::::::::::::Driver : "+getDriver());
 			wait = new WebDriverWait(getDriver(), getTimeout());
 			js = (JavascriptExecutor) getDriver();
