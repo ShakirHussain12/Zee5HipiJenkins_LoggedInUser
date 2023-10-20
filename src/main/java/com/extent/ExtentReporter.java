@@ -298,7 +298,7 @@ public class ExtentReporter implements ITestListener  {
 			MailReport mail=new MailReport();
 	mail.sendMail("igsindiajenkins@gmail.com", "csoehouykebabvlc", "smtp.gmail.com", "587", "true", "true", true, "javax.net.ssl.SSLSocketFactory",
 			"false", to, cc, bcc, "Hipi Android BrowserStack Automation(Logged In User) Fail Alert",
-				"TestCAse ID"," "+summarry );
+			"TestCAse ID"," "+summarry );
 			//SearchScenarios_ExcelUpdate.writeData1(details, "Fail", "");
 		}
 	public void extentLoggerWarning(String stepName, String details) {
