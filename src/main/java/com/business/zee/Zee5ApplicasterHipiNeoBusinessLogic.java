@@ -48010,7 +48010,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 			
 			Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
 			Time_ExcelUpdate.TestCaseSummaryNode1("Feed Screen launch time.");
-			extent.extentLoggerFail("", "Feed screen seen  at Time----- " + end);
+			extent.extentLogger("", "Feed screen seen  at Time----- " + end);
 			
 			}else {
 				String Username = getParameterFromXML("NonsubscribedUserName");
@@ -50558,7 +50558,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		String Processingtimemilli=Long.toString(processingTime.toMillis());	
 		Time_ExcelUpdate.timeStampNode(Processingtimesec+" seconds " +Processingtimemilli+"  milliSeconds");
 
-				extent.extentLoggerPass("","<b>Processing time: " + processingTime+"<b>");
+				extent.extentLoggerFail("","<b>Processing time: " + processingTime+"<b>");
 	}
 	else {
 		logger.error("User is not able to login With Google");
