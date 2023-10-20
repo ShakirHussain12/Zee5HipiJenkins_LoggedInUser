@@ -57299,7 +57299,7 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	type(HipiLoginPage.objEmailInput,randomMail,"Yopmail email input");
 	click(HipiLoginPage.objmailSubmit,"submit");
 	waitTime(6000);
-	String otp = getDriver().findElement(HipiLoginPage.objInbox).getText().substring(11,16);
+	String otp = getDriver().findElement(HipiLoginPage.objInbox).getText().substring(10,15);
 	String[] otpArray = otp.split("");
 	System.out.println(otpArray[0]);
 	getDriver().activateApp("com.zee5.hipi");
