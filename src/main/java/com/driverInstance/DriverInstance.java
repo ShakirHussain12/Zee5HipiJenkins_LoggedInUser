@@ -142,8 +142,8 @@ public class DriverInstance extends Drivertools {
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		//capabilities.setCapability("browserstack.enableSim","true");
-		HashMap<String, String> simOptions = new HashMap<String, String>();
-		simOptions.put("region","USA");
+		//HashMap<String, String> simOptions = new HashMap<String, String>();
+		//simOptions.put("region","USA");
 		//capabilities.setCapability("browserstack.simOptions", simOptions);
 		
 		/*if (getPlatform().equals("BrowserStackMPWA")) {

@@ -223,10 +223,10 @@ public class AndroidHiPiNeoP0 {
 	@Test(priority = 20)
 	@Parameters({ "userType"})
 	public void logout(String userType) throws Exception {
-//		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shivangi","TC029");
-//		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shraddha arya","TC030");
-//		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("punjabi singers","TC031");
-//		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("bollywood actress","TC032");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shivangi","TC029");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shraddha arya","TC030");
+	Zee5ApplicasterHipiNeoBusinessLogic.searchResults("punjabi singers","TC031");
+	Zee5ApplicasterHipiNeoBusinessLogic.searchResults("bollywood actress","TC032");
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("punjabi videos", "TC033");
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("funny video", "TC034");
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("xxx", "TC035");

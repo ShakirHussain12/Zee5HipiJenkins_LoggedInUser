@@ -112,9 +112,38 @@
     <classes>
       <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0">
         <methods>
-          <include name="Login"/>
+          <include name="launchApptime"/>
+          <include name="DiscoverScreenLoadTime"/>
+          <include name="AutoSuggestionTime"/>
+          <include name="OnClickingBannerScreenLoadTime"/>
+          <include name="railsPageTime"/>
+          <include name="hashtagDetailPageTime"/>
+          <include name="BannerLoadTime"/>
+          <include name="SearchScreenTimePostSearchingAKeyword"/>
+          <include name="VideoStartUpTimeAfterSwipe"/>
+          <include name="logout"/>
         </methods>
       </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP0 -->
     </classes>
   </test> <!-- AndroidHiPiNeo -->
+  <test parallel="tests" name="AndroidHiPiNeo(failed)">
+    <classes>
+      <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0">
+        <methods>
+          <include name="BannerLoadTime" invocation-numbers="0"/>
+          <include name="VideoStartUpTimeAfterSwipe" invocation-numbers="0"/>
+          <include name="SearchScreenTimePostSearchingAKeyword" invocation-numbers="0"/>
+          <include name="OnClickingBannerScreenLoadTime" invocation-numbers="0"/>
+          <include name="hashtagDetailPageTime" invocation-numbers="0"/>
+          <include name="launchApptime" invocation-numbers="0"/>
+          <include name="DiscoverScreenLoadTime" invocation-numbers="0"/>
+          <include name="railsPageTime" invocation-numbers="0"/>
+          <include name="AppLaunch"/>
+          <include name="tearDownApp"/>
+          <include name="AutoSuggestionTime" invocation-numbers="0"/>
+          <include name="logout" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP0 -->
+    </classes>
+  </test> <!-- AndroidHiPiNeo(failed) -->
 </suite> <!-- Failed suite [BrowserStack] -->
