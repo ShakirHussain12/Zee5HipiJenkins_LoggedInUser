@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="BrowserStack" parallel="tests" thread-count="2">  <!-- name="Android" -->
+<suite name="BrowserStackGuest" parallel="tests" thread-count="2">  <!-- name="Android" -->
 		
 	<!-- <parameter name="userType" value="${UserType}"/> Guest/NonSubscribedUser
 		<parameter name="runMode" value="${runMode}"/> <parameter name="runModule" 

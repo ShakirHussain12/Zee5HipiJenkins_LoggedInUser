@@ -159,7 +159,8 @@ public class ExtentReporter implements ITestListener  {
 		System.out.println(DriverInstance.getRunModule());
 		if ((Stream.of(result.getName(), "Suite").anyMatch(DriverInstance.getRunModule()::equals)
 				&& DriverInstance.startTest) || result.getName().equals("Login")
-				|| result.getName().equals("PWAWEBLogin")) {
+				|| result.getName().equals("PWAWEBLogin") || result.getName().equals("BrowserStackGuest")
+				|| result.getName().equals("BrowserStackLogged")) {
 			DriverInstance.methodName = result.getName();
 			logger.info(":::::::::Test " + result.getName() + " Started::::::::");
 //======================================new lines====================================================			
