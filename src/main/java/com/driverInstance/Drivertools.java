@@ -396,9 +396,9 @@ public class Drivertools {
 			click = false;
 		} else if (getPlatform().equals("BrowserStackGuestLogged")) {
 			setENV("Native App");
-			click = false;
+			click = false;}
 		logger.info("PlatForm :: " + getPlatform());
-		if (Stream.of("Android", "ios", "Web", "MPWA", "TV", "HIPI","HIPI_iOS","iOSWeb","ANDROIDMPWA","BrowserStackGuest","BrowserStackGuestLogged").anyMatch(getPlatform()::equals)) {
+		if (Stream.of("Android", "ios", "Web", "MPWA", "TV", "HIPI","HIPI_iOS","iOSWeb","ANDROIDMPWA","BrowserStackGuest","BrowserStackLogged").anyMatch(getPlatform()::equals)) {
 			setHandler(new PropertyFileReader("properties/ExecutionControl.properties"));
 			if (getHandler().getproperty(getTestName()).equals("Y") && (getRunMode().contentEquals(getTestName()))
 					|| (getRunMode().contentEquals("Suites"))) {
