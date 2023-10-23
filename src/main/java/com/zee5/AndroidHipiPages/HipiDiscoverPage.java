@@ -240,7 +240,7 @@ public static By objRecentSearch = By.xpath("//*[@id='recent_and_trending_layout
 		public static By objDiscoverSearchInbox = By.xpath("//*[@resource-id='com.zee5.hipi:id/editTextSearch']");
 
 		//More Button trending On Hipi
-		public static By objMoreButtonTrendingOnHipi = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnMore' and @index='2']");											
+		public static By objMoreButtonTrendingOnHipi = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnMore']");											
 
 		//5th Profile
 		public static By obj5thProfile = By.xpath("(//*[@text='Bollywood Zone']//following::*//*[@resource-id='com.zee5.hipi:id/imageView'])[5]");
@@ -437,9 +437,9 @@ public static By objRecentSearch = By.xpath("//*[@id='recent_and_trending_layout
 				//Bollywood ZOne arrow mark
 				public static By objArrowMarkFirstRailProfile=By.xpath("//*[@resource-id='com.zee5.hipi:id/title']//following::*[@resource-id='com.zee5.hipi:id/btnMore' and @index='1']");
 				//Bollywood Zone After tapping arrow button
-				public static By objBollywoodZoneAfterTappingArrow=By.xpath("//*[@resource-id='com.zee5.hipi:id/btnMore' and @index='1']");
+				public static By objBollywoodZoneAfterTappingArrow=By.xpath("//*[@resource-id='com.zee5.hipi:id/btnMore']");
 				//Bollywood zone profile icon
-				public static By objProfileIconInBollywoodZone=By.xpath("(//*[@id='followBtn']/preceding-sibling::*[4])[1]");
+				public static By objProfileIconInBollywoodZone=By.xpath("//*[@resource-id='com.zee5.hipi:id/userHandle']");
 				//Bollywood Zone profile icon User header
 				public static By objProfileUserHeaderInBollywoodZone=By.xpath("//*[@resource-id='com.zee5.hipi:id/txtUserHandle']");
 				//Following button in profile details

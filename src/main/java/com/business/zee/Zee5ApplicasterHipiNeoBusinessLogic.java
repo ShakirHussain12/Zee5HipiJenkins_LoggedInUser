@@ -48450,9 +48450,10 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 		Time_ExcelUpdate.ModuleNode("Discover");
 		Time_ExcelUpdate.ExpectedProcessingTime("2.5 Sec");
 		
-		
+		if(verifyElementExist(HipiHomePage.objClaimNowButton,"Claim rewards popup")) {
+			Back(1);
+		}
 		extent.HeaderChildNode("Rails page time");
-
 		TimeStampverifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 		waitTime(3000);
 		TimeStampclick(HipiDiscoverPage.objBollywoodZoneAfterTappingArrow, "More Button");
@@ -48474,9 +48475,9 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 		extent.extentLogger("", "Rails page Displayed");
 		}else {
 			String Username = getParameterFromXML("NonsubscribedUserName");
-			Time_ExcelUpdate.timeStampNode("Rails page is not displayed" + Username + getListOfDevicesConnected());
-			Time_ExcelUpdate.TestCaseSummaryNode1("Rails page is not displayed" + Username + getListOfDevicesConnected());
-			extent.extentLoggerFail("", "Rails page is not displayed" + Username + getListOfDevicesConnected());
+			Time_ExcelUpdate.timeStampNode("Rails page is not displayed " + Username + getListOfDevicesConnected());
+			Time_ExcelUpdate.TestCaseSummaryNode1("Rails page is not displayed " + Username + getListOfDevicesConnected());
+			extent.extentLoggerFail("", "Rails page is not displayed " + Username + getListOfDevicesConnected());
 		}
 		TimeStampnavigateToHomePage();
 //		TimeStampclick(HipiDiscoverPage.objBollywoodProfileName, "First profile rails");
@@ -48504,6 +48505,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 		extent.HeaderChildNode("hashtag detail page time.");
 		TimeStampverifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 		waitTime(3000);
+		TimeStampSwipe("UP",2);
 		TimeStampclick(HipiDiscoverPage.objMoreButtonTrendingOnHipi, "More Button");
 		Instant start=Instant.now();
 		logger.info("Start Time : " + start);

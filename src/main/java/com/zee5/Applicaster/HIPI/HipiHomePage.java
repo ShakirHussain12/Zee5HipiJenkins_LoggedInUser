@@ -9,6 +9,7 @@ public class HipiHomePage {
 	
 	public static By objSaveBtn = By.xpath("//*[@text='Save']");
 	
+	public static By objClaimNowButton = By.xpath("//*[@text='Claim Now']");
 	
 	
 	public static By objPlayicon = By.xpath("//*[contains(@resource-id,'playImageView')]");
