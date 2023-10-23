@@ -269,7 +269,7 @@ public class HipiHomePage {
 
 				public static By objProgressBar=By.xpath("//*[@resource-id='com.zee5.hipi:id/exo_progress']");
 				
-				public static By objVideoUIID=By.xpath("//*[@resource-id='com.zee5.hipi:id/creator_language']");
+				public static By objVideoUIID=By.xpath("//*[@resource-id='com.zee5.hipi:id/videoId']");
 					
 				public static By objCountOfUnreadNotifications=By.xpath("//*[@resource-id='com.zee5.hipi:id/badge_text_view']");
 										

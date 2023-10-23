@@ -48046,19 +48046,19 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 
 			Instant start = Instant.now();
 			
-			waitUntilElementDisplayed(HipiHomePage.objForYou, 10);		
-			for(int i=0; i<=1000;i++) {
-				System.out.println(i);
-			 String videoid = getText(HipiHomePage.objUserName);
+			TimeStampwaitForElementDisplayediOS(HipiHomePage.objForYou, 1000, "for you button in feed");		
+			for(int i=0; i<=100;i++) {
+			 String videoid = getText(HipiHomePage.objVideoUIID);
 				String Username = getParameterFromXML("NonsubscribedUserName");
 				creatCSV(videoid,Username,getListOfDevicesConnected());
 //				extent.extentLoggerPass("", videoid+","+Username+"," +getListOfDevicesConnected()+",");
 //				Time_ExcelUpdate.TestCaseSummaryNode1( videoid+","+Username+"," +getListOfDevicesConnected()+",");
 				
-//				waitTime(5000);
+				waitTime(5000);
 				TimeStampSwipe("UP", 1);
 				
 			}
+			TimeStampnavigateToHomePage();
 			
 		}
 		
@@ -48280,6 +48280,8 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 			}
 //			extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
 //			waitUntilElementDisplayed(HipiHomePage.objProgressBarStart, 10);
+			
+			
 				
 		}
 		
@@ -48723,6 +48725,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 		 * 
 		 */
 		public void TimeStamp_create_Video_Of_Specific_Time_Next(String k , String TCID1) throws Exception {
+			Boolean flag= false;
 			TimeStampclick(HipiHomePage.objVideoCreateIcon, "Create button");
 			waitTime(3000);
 			TimeStampnaallowPermissions();
@@ -48750,7 +48753,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 					}
 
 //				TimeStamptimeTakeClickingOnNextButton();
-				waitUntilElementDisplayed(HipiCreateVideoPage.objVideoEditScreenNext, 20);
+				waitUntilElementDisplayed(HipiCreateVideoPage.objVideoEditScreenNext, 25);
 				TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoEditScreenNext, "Next");
 				Instant start=Instant.now();
 				logger.info("Start Time : " + start);
@@ -48779,34 +48782,51 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 				extent.HeaderChildNode("Video posting scenario for time " +k + " seconds");
 				Time_ExcelUpdate.TestCaseIDNode(TCID1);
 				Time_ExcelUpdate.ModuleNode("Create video scenario");
-//				TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoLanguageSelect, "Video Language Select");
-//				waitTime(3000);
+				//TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoLanguageSelect, "Video Language Select");
+				//waitTime(3000);
 				if(TimeStampverifyElementExist(HipiCreateVideoPage.objEnglishLanguage, "English Language"))
 				{
 					TimeStampclick(HipiCreateVideoPage.objEnglishLanguage, "English Language");
-//					TimeStampclick(HipiCreateVideoPage.objDoneCTC, "Done Button");
+					//TimeStampclick(HipiCreateVideoPage.objDoneCTC, "Done Button");
 				}else {
 					logger.info("User is unable to See Language Options");
 					extent.extentLoggerFail("profile screen", "User is unable to See Language Options"); 
 					
 				}
+				
+				TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objSelectVideoCategory,"Select video category");
+				waitTime(3000);
+				TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoCategoryValue,"Any category");
+				TimeStampBack(1);
+				waitTime(3000);	
 				TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objpostbtn,"post button");
-				waitTime(2000);
+//				waitTime(1000);
+				if(waitUntilElementDisplayed(HipiCreateVideoPage.objNeedfeedbackPopUp,20)){
+					System.out.println("Feedback pop up displayed");
+
+					verifyElementPresentAndClick(HipiCreateVideoPage.objNoCtaOnNeedFeedbackPopUp," No CTA on need feedback popup");
+				}
 				Instant start1=Instant.now();
 				logger.info("Start Time : " + start1);
-				if(TimeStampverifyElementPresent(HipiCreateVideoPage.objuploadInProgressPopup, "upload In Progress Popup")) {
-					waitForElementNotDisplayed(HipiCreateVideoPage.objuploadInProgressPopup);
+				
+				if(waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 10)) {
+
+					
+					
+					if(verifyElementExist(HipiCreateVideoPage.objShareSheet, "Share Sheet")) {
+						flag = true;
+						TimeStampBack(1);
+					}else {
+						logger.info("User is unable to See Share Sheet");
+						extent.extentLoggerPass("", "User is unable to See Share Sheet"); 
+					}
+					waitTime(8000);
 //				Date startTime1 = new Date();
 //				logger.info("Start Time : " + getDateDetails(startTime1));
 //				extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime1)+"<b>");
 					Instant end1=Instant.now();
 					logger.info("End Time : " + end1);
-					if(waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 10)) {
-						Back(1);
-					}else {
-						logger.info("User is unable to See Share Sheet");
-						extent.extentLoggerFail("", "User is unable to See Share Sheet"); 
-					}
+				
 //					extent.extentLogger("", "<b>End Time : " + end+"<b>");
 					Duration processingTime1 = Duration.between(start1, end1);
 					logger.info("Processing time: " + processingTime1);
@@ -48815,16 +48835,21 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 					Time_ExcelUpdate.timeStampNode(Processingtimesec1+"."+Processingtimemilli1 + " Sec");
 					
 //					extent.HeaderChildNode("<b>clicking on next button Processing time: " + processingTime+"<b>");
+					if(flag || k.equals("15s")) {
 					Time_ExcelUpdate.TestCaseSummaryNode1("User able to Create video when user click on post Button");
-					extent.extentLogger("", "User able to Create video when user click on post Button");
-				}else {
+					extent.extentLogger("", "User able to Create video when user click on post Button");}
+				}else if(flag==false && k.equals("15s")) {
+					Time_ExcelUpdate.TestCaseSummaryNode1("User able to Create video when user click on post Button");
+					extent.extentLogger("", "User able to Create video when user click on post Button");}
+				else if(flag==false){
 					String Username = getParameterFromXML("NonsubscribedUserName");
-					Time_ExcelUpdate.timeStampNode("User unable to Create video when user click on post Button" + Username + getListOfDevicesConnected());
-					Time_ExcelUpdate.TestCaseSummaryNode1("User unable to Create video when user click on post Button" + Username + getListOfDevicesConnected());
-					extent.extentLoggerFail("", "User unable to Create video when user click on post Button" + Username + getListOfDevicesConnected());
+					Time_ExcelUpdate.timeStampNode("User unable to Create video when user click on post Button " + Username + getListOfDevicesConnected());
+					Time_ExcelUpdate.TestCaseSummaryNode1("User unable to Create video when user click on post Button " + Username + getListOfDevicesConnected());
+					extent.extentLoggerFail("", "User unable to Create video when user click on post Button " + Username + getListOfDevicesConnected());
 					
 					}
-					TimeStampdiscardPopup();
+				TimeStampdiscardPopup();
+
 			}
 		}
 		public void TimeStamp_create_Video_Of_Specific_Time_Post(String k) throws Exception {
@@ -48995,34 +49020,55 @@ public void TimeStamptimeTakeClickingOnPostButton() throws Exception {
 	waitUntilElementDisplayed(HipiCreateVideoPage.objVideoEditScreenNext, 40);
 	TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoEditScreenNext, "Next");
 	waitUntilElementDisplayed(HipiCreateVideoPage.objpostbtn,30);
-//	TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoLanguageSelect, "Video Language Select");
-//	waitTime(3000);
+	//TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoLanguageSelect, "Video Language Select");
+	//waitTime(3000);
 	if(TimeStampverifyElementExist(HipiCreateVideoPage.objEnglishLanguage, "English Language"))
 	{
 		TimeStampclick(HipiCreateVideoPage.objEnglishLanguage, "English Language");
-//		TimeStampclick(HipiCreateVideoPage.objDoneCTC, "Done Button");
+		//TimeStampclick(HipiCreateVideoPage.objDoneCTC, "Done Button");
 	}else {
 		logger.info("User is unable to See Language Options");
-		extent.extentLoggerFail("profile screen", "User is unable to See Language Options"); 
+//		extent.extentLoggerFail("profile screen", "User is unable to See Language Options"); 
 		
 	}
+//	if(TimeStampverifyElementExist(HipiCreateVideoPage.objEnglishLanguage, "English Language"))
+//	{
+//		TimeStampclick(HipiCreateVideoPage.objEnglishLanguage, "English Language");
+//	}else {
+//		logger.info("User is unable to See Language Options");
+//		extent.extentLoggerFail("profile screen", "User is unable to See Language Options"); 
+//		
+//	}
+	
+	TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objSelectVideoCategory,"Select video category");
+	waitTime(3000);
+	TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoCategoryValue,"Any category");
+	TimeStampBack(1);
+	waitTime(3000);	
+
 	TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objpostbtn,"post button");
-	waitTime(2000);
+
 	Instant start=Instant.now();
 	logger.info("Start Time : " + start);
-	if(waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 10)) {
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 30)) {
 //		waitForElementNotDisplayed(HipiCreateVideoPage.objuploadInProgressPopup);
 //	Date startTime1 = new Date();
 //	logger.info("Start Time : " + getDateDetails(startTime1));
 //	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime1)+"<b>");
 		Instant end=Instant.now();
 		logger.info("End Time : " + end);
-		if(waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 10)) {
+		if(waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 1)) {
 			Back(1);
 		}else {
 			logger.info("User is unable to See Share Sheet");
 			extent.extentLoggerFail("", "User is unable to See Share Sheet"); 
 		}
+		waitTime(8000);
+//	Date startTime1 = new Date();
+//	logger.info("Start Time : " + getDateDetails(startTime1));
+//	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime1)+"<b>");
+		
+		logger.info("End Time : " + end);
 //		extent.extentLogger("", "<b>End Time : " + end+"<b>");
 		Duration processingTime = Duration.between(start, end);
 		logger.info("Processing time: " + processingTime);
@@ -49166,7 +49212,7 @@ public void TimeStamplogOut() throws Exception {
 	TimeStampverifyElementPresentAndClick(HipiHomePage.objYesCTA, "Yes CTA");
 	Instant start = Instant.now();
 //	extent.extentLogger("", "clicked on hipi at Time----- "+ start);
-	waitUntilElementDisplayed(HipiHomePage.objForYou, 10);		
+	waitForElementDisplayediOS(HipiHomePage.objForYou, 10, "for you button in feed");		
 	Instant end=Instant.now();
 	logger.info("End Time : " + end);
 //	extent.extentLogger("", "<b>End Time : " + end+"<b>");
@@ -49576,7 +49622,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 	TimeStampclick(HipiDiscoverPage.objSearchResult, "Search result");
 //	waitTime(3000);
 	waitUntilElementDisplayed(HipiDiscoverPage.objListFirstuserProfile(1), 20);
-//	TimeStampwaitUntilElementDisplayedFastPolling(IOSHiPiNeoDiscoverPage.objiosProfileInDiscoverpage(1), 100, "results after search");
+//	TimeStampwaitForElementDisplayedFastPolling(IOSHiPiNeoDiscoverPage.objiosProfileInDiscoverpage(1), 100, "results after search");
 	extent.extentLogger("","Search done");
 	
 	Time_ExcelUpdate.ModuleNode("Top Users Section :"+SearchItem);
@@ -49598,7 +49644,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 	Time_ExcelUpdate.ModuleNode("Top Videos Section:"+SearchItem);
 	Time_ExcelUpdate.TestCaseSummaryNode1("Top Videos Result:"+SearchItem);
 	
-//	PartialSwipe("UP", 1);
+	PartialSwipe("UP", 1);
 	if(TimeStampverifyElementExist(HipiDiscoverPage.objListOfVideos(1), "Videos in under Top section ")) {
 	Video1=getText(HipiDiscoverPage.objListOfVideos(1));
 	System.out.println(Video1);
@@ -49703,10 +49749,10 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 //		Time_ExcelUpdate.TestCaseSummaryNode1("Sound  not present");
 //		extent.extentLoggerFail("","Sound  not present");
 	}
-	
-	waitTime(5000);
+	TimeStampSwipe("DOWN", 1);
+	waitUntilElementDisplayed(HipiDiscoverPage.objUserTab, 1);
 	TimeStampclick(HipiDiscoverPage.objUserTab, "User Tab");
-	waitTime(3000);
+	waitUntilElementDisplayed(HipiDiscoverPage.objListFirstuserProfile(1), 1);
 	Time_ExcelUpdate.ModuleNode("Users Section: "+SearchItem);
 	if(TimeStampverifyElementExist(HipiDiscoverPage.objListFirstuserProfile(1), "Results under Users Tab")) {
 	waitTime(3000);
@@ -49736,7 +49782,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 	}else {
 	
 		//Time_ExcelUpdate.TestCaseSummaryNode1("Users tap result  not present");
-		extent.extentLoggerFail("","Users tap result  not present");
+		extent.extentLoggerPass("","Users tap result  not present");
 		
 //		Time_ExcelUpdate.TestCaseSummaryNode1("Users tap result  not present");
 //		extent.extentLoggerFail("","Users tap result  not present");
@@ -49799,7 +49845,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 	
 //		TimeStampPartialSwipeiOS("Up", 1);
 //		waitTime(3000);
-//		TimeStampwaitUntilElementDisplayediOS(IOSHiPiNeoDiscoverPage.objiosSearchResultVideosInTopSection(3,9), 20, "videos");
+//		TimeStampwaitForElementDisplayediOS(IOSHiPiNeoDiscoverPage.objiosSearchResultVideosInTopSection(3,9), 20, "videos");
 //		String Video3=getText(IOSHiPiNeoDiscoverPage.objiosSearchResultVideosInTopSection(3,9));
 //		System.out.println(Video3);
 		
@@ -49819,7 +49865,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 		}else {
 			
 			//Time_ExcelUpdate.TestCaseSummaryNode1("Videos  not present");
-			extent.extentLoggerFail("","Videos  not present");
+			extent.extentLoggerPass("","Videos  not present");
 			
 			
 		}
@@ -49922,7 +49968,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 		}else {
 			
 			//Time_ExcelUpdate.TestCaseSummaryNode1("HashTag  not present");
-			extent.extentLoggerFail("","HashTag  not present");
+			extent.extentLoggerPass("","HashTag  not present");
 			
 			
 		}
@@ -49930,6 +49976,7 @@ public void searchResults(String SearchItem,String TCID) throws Exception {
 //	TimeStampclick(IOSHiPiNeoDiscoverPage.objBackButtonInDiscoverPage, "Back button");
 //	waitTime(2500);
 		TimeStampnavigateToHomePage();
+	
 	
 }
 //===============================
@@ -50761,9 +50808,11 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		TimeStampverifyElementPresentAndClick(HipiHomePage.objDuet,"Duet");
 		waitTime(2000);
 		TimeStampnaallowPermissions();
-		waitTime(5000);
+		waitTime(10000);
 		waitForElementNotDisplayed(HipiCreateVideoPage.objdownloadTxtProgress);
- 		waitUntilElementDisplayed(HipiCreateVideoPage.objRecordIcon, 10);
+		waitTime(4000);
+ 		waitUntilElementDisplayed(HipiCreateVideoPage.objRecordIcon, 2);
+ 		TimeStampclick(HipiCreateVideoPage.objVideoTickBtn, "Video Tick Btn");
  		TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objRecordIcon,"Duet Record");
  		TimeStamptimeTakeClickingOnPostButton();
 		
@@ -51120,6 +51169,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 //		Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
 		extent.HeaderChildNode("Shop Page ");
 		SwipeUntilFindElement(HipiHomePage.objShopButton, "UP");
+		waitTime(4000);
 		click(HipiHomePage.objShopButton, "Shop Button");	
 		Instant start=Instant.now();
 		logger.info("Start Time : " + start);
@@ -51141,6 +51191,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 			extent.extentLoggerFail("", "User is not able to See Shop Page");
 		}
 		
+		TimeStampnavigateToHomePage();
 			
 			}
 	

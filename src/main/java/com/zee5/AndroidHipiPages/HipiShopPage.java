@@ -14,7 +14,7 @@ public class HipiShopPage {
 	//Saved Moments
 	public static By objSavedMomentTab = By.xpath("//*[@resource-id='com.zee5.hipi:id/tabTitleTxt' and @text='WISHLIST']");
 	//Product Image
-	public static By objProductImageThumbnail = By.xpath("(//*[@resource-id='com.zee5.hipi:id/imgThumbnail'])[1]");
+	public static By objProductImageThumbnail = By.xpath("//*[@resource-id='com.zee5.hipi:id/content_image_view']");
 	//close Button Third party Site
 	public static By objCloseButtonThirdPartySite = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgBack']");
 	 //product website 

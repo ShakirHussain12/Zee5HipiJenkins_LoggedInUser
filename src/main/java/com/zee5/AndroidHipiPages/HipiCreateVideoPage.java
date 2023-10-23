@@ -1237,4 +1237,14 @@ public class HipiCreateVideoPage {
 						public static By objPinText = By.xpath("//*[@text='Pin']");
 						public static By objUnpinText = By.xpath("//*[@text='Unpin']");
 						public static By objProfileVideoShareBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/image_view_option_share']");
+						
+						//select video category
+						public static By objSelectVideoCategory = By.xpath("//*[@resource-id='com.zee5.hipi:id/videoCategoryValue']");
+						
+						//Video category value
+						public static By objVideoCategoryValue = By.xpath("//*[@resource-id='com.zee5.hipi:id/lang_name']");
+						
+						public static By objNeedfeedbackPopUp = By.xpath("//android.widget.TextView[contains(@resource-id,'com.zee5.hipi:id/needFeedbackTextView')]");
+
+						public static By objNoCtaOnNeedFeedbackPopUp = By.xpath("//android.widget.TextView[contains(@resource-id,'com.zee5.hipi:id/negativeTv')]");
 }	
