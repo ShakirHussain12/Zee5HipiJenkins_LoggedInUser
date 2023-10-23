@@ -262,7 +262,7 @@ public class HipiHomePage {
 					return By.xpath("(//*[contains(@id,'Title')])[" + index + "]");}
 				public static By objVerifySound(String Text) {
 					return By.xpath("//*[contains(@text,'"+Text+"')]");}
-				public static By objWaitComment=By.xpath("//*[@text='Hi  few seconds ago']");
+				public static By objWaitComment=By.xpath("//*[@text='Hi Few seconds ago']");
 
 				public static By objProgressBarID=By.xpath("//*[@id='exo_progress']");
 

@@ -144,7 +144,8 @@ public class Utilities extends ExtentReporter {
 		if (getPlatform().equals("Web")) {
 			wait = new WebDriverWait(getWebDriver(), getTimeout());
 			js = (JavascriptExecutor) getWebDriver();
-		} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")) {
+		} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")
+				||getPlatform().equals("BrowserStackMPWA")) {
 			System.out.println("::::::::::::::::::::::::::::Driver : "+getDriver());
 			wait = new WebDriverWait(getDriver(), getTimeout());
 			js = (JavascriptExecutor) getDriver();
@@ -3292,8 +3293,10 @@ try {
 //			Back(1);
 			System.out.println(flag);
 			if (flag) {
-				if (verifyElementDisplayed(HipiShopPage.objSavedMomentTab)) {
+				if (verifyElementDisplayed(HipiShopPage.objInThisVideo)) {
 					TimeStampBack(1);
+					click(HipiHomePage.objHomeIcon, "Home icon");
+					waitTime(3000);
 				}
 				break;
 			} else {
@@ -3302,6 +3305,7 @@ try {
 			}
 		}
 		if(TimeStampverifyElementExist(HipiHomePage.objHomeIcon, "Home Icon")) {
+			click(HipiHomePage.objHomeIcon, "Home icon");
 			System.out.println("User is able to see Home page");
 		}else {
 			TimeStamprelaunch(false);
@@ -3309,6 +3313,11 @@ try {
 		}
 //		click(HipiHomePage.objHomeIcon, "Home Icon");
 		waitTime(4000);
+		if(TimeStampverifyElementExist(HipiHomePage.objFollowButton, "Follow button")) {
+			TimeStampclick(HipiHomePage.objFollowButton, "Follow button");
+
+		}
+		
 	}
 	public void TimeStamprelaunch(boolean clearData) throws Exception {
 		HeaderChildNode("Relaunch the app");

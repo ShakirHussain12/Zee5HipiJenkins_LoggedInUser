@@ -386,7 +386,7 @@ public static By objRecentSearch = By.xpath("//*[@id='recent_and_trending_layout
 		//banner rail
 				public static By objBannersRail = By.xpath("//*[@resource-id='com.zee5.hipi:id/bannerLayer']");
 		//banner related header
-				public static By objBannerHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/hashtagName']");	
+				public static By objBannerHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/hashtagName'] | //*[@resource-id='com.zee5.hipi:id/profile_pic']");	
 		//favourites rail to hashtag
 				public static By objfavoriteshashtags = By.xpath("//*[@resource-id='com.zee5.hipi:id/txtGenreName']");
 			//swipeing	

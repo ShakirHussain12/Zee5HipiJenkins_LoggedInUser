@@ -107,7 +107,7 @@ public class ExtentReporter implements ITestListener  {
 	public void initExtentDriver() {
 		if (getPlatformFromtools().equals("Web")) {
 			src = ((TakesScreenshot) getWebDriver()).getScreenshotAs(org.openqa.selenium.OutputType.FILE);
-		} else if (getPlatformFromtools().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged") ) {
+		} else if (getPlatformFromtools().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged") || getPlatform().equals("BrowserStackMPWA")) {
 			src = ((TakesScreenshot) getDriver()).getScreenshotAs(org.openqa.selenium.OutputType.FILE);
 		}
 		else if (getPlatformFromtools().equals("HIPI_iOS") ) {
@@ -160,7 +160,7 @@ public class ExtentReporter implements ITestListener  {
 		if ((Stream.of(result.getName(), "Suite").anyMatch(DriverInstance.getRunModule()::equals)
 				&& DriverInstance.startTest) || result.getName().equals("Login")
 				|| result.getName().equals("PWAWEBLogin") || result.getName().equals("BrowserStackGuest")
-				|| result.getName().equals("BrowserStackLogged")) {
+				|| result.getName().equals("BrowserStackLogged") || result.getName().equals("BrowserStackMPWA")) {
 			DriverInstance.methodName = result.getName();
 			logger.info(":::::::::Test " + result.getName() + " Started::::::::");
 //======================================new lines====================================================			

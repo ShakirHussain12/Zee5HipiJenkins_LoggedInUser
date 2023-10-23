@@ -47858,8 +47858,8 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 					String Username = getParameterFromXML("NonsubscribedUserName");
 				logger.info("User is not able to like the video"+ Username + getListOfDevicesConnected());
 				
-				Time_ExcelUpdate.TestCaseSummaryNode1("User is not able to like video"+ Username + getListOfDevicesConnected());
-				extent.extentLoggerFail("", "User is not able to like the video"+ Username + getListOfDevicesConnected());
+				Time_ExcelUpdate.TestCaseSummaryNode1("User is not able to like video "+ Username + getListOfDevicesConnected());
+				extent.extentLoggerFail("", "User is not able to like the video "+ Username + getListOfDevicesConnected());
 			}	
 		}
 		
@@ -47887,7 +47887,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 			//			extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
 			waitUntilElementDisplayed(HipiHomePage.objWaitComment, 10);
 			String comment = getText(HipiHomePage.objFirstComment);
-			if (comment.contains("Hi  few seconds ago")) {
+			if (comment.contains("Hi Few seconds ago")) {
 				logger.info("Comment is added with the typed description on the top [with time display as - just now or few seconds ago]");	
 				Instant end=Instant.now();
 				logger.info("End Time : " + end);
@@ -47983,8 +47983,24 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 			getDriver().quit();
 			waitTime(3000);
 			new Zee5ApplicasterHipiNeoBusinessLogic("zee");
+//			if(TimeStampverifyElementExist(HipiHomePage.objUpdate, "Update Button"))
+//				{
+			
+//				TimeStampclick(HipiHomePage.objUpdate, "Update Button");
+//				waitTime(4000);
+//				waitForElementNotDisplayed(HipiHomePage.objCancelDownload);
+//				waitTime(10000);
+////				TimeStamprelaunch(false);
+//				if(TimeStampverifyElementExist(HipiHomePage.objDone, "Done Button")) {
+//					TimeStampclick(HipiHomePage.objDone, "Done Button");
+//					
+//				}
+//				
+//				}else{
+//					System.out.println("Update Popup is not displayed");
+//					}
 			waitUntilElementDisplayed(HipiLoginPage.objMaybeLater, 1);
-			if(verifyElementExist(HipiLoginPage.objMaybeLater, "Maybe Later"))
+			if(TimeStampverifyElementExist(HipiLoginPage.objMaybeLater, "Maybe Later"))
 			{
 				TimeStampclick(HipiLoginPage.objMaybeLater, "Maybe Later");
 				System.out.println("Update Popup is displayed");
@@ -47995,7 +48011,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 //			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
 //			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
 
-			if(waitUntilElementDisplayed(HipiHomePage.objForYou, 10)) {
+			if(TimeStampwaitForElementDisplayediOS(HipiHomePage.objForYou, 1000, "for you button in feed")) {
 			screencapture();
 			Instant end = Instant.now();
 			Duration timeElapsed = Duration.between(start, end);
@@ -48010,7 +48026,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 			
 			Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
 			Time_ExcelUpdate.TestCaseSummaryNode1("Feed Screen launch time.");
-			extent.extentLoggerFail("", "Feed screen seen  at Time----- " + end);
+			extent.extentLogger("", "Feed screen seen  at Time----- " + end);
 			
 			}else {
 				String Username = getParameterFromXML("NonsubscribedUserName");
@@ -48018,6 +48034,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 				Time_ExcelUpdate.TestCaseSummaryNode1("Feed Screen is not dispalyed " + Username + getListOfDevicesConnected());
 				extent.extentLogger("", "Feed Screen is not dispalyed " + Username + getListOfDevicesConnected());
 			}
+		
 		}
 		public void videoUIRepate(String userType) throws Exception {
 			Time_ExcelUpdate.TestCaseIDNode("TC039");
@@ -50365,6 +50382,22 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		getDriver().quit();
 		waitTime(3000);
 		new Zee5ApplicasterHipiNeoBusinessLogic("zee");
+//		if(TimeStampverifyElementExist(HipiHomePage.objUpdate, "Update Button"))
+//		{
+//	
+//		TimeStampclick(HipiHomePage.objUpdate, "Update Button");
+//		waitTime(4000);
+//		waitForElementNotDisplayed(HipiHomePage.objCancelDownload);
+//		waitTime(10000);
+////		TimeStamprelaunch(false);
+//		if(TimeStampverifyElementExist(HipiHomePage.objDone, "Done Button")) {
+//			TimeStampclick(HipiHomePage.objDone, "Done Button");
+//			
+//		}
+//		
+//		}else{
+//			System.out.println("Update Popup is not displayed");
+//			}
 		waitUntilElementDisplayed(HipiLoginPage.objMaybeLater, 1);
 		if(TimeStampverifyElementExist(HipiLoginPage.objMaybeLater, "Maybe Later"))
 		{
@@ -50377,7 +50410,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 //		extent.extentLogger("", "clicked on hipi at Time----- "+ start);
 //		extent.extentLogger("", "clicked on hipi at Time----- "+ start);
 
-		if(waitUntilElementDisplayed(HipiHomePage.objProgressBar, 10)) {	
+		if(TimeStampwaitForElementDisplayediOS(HipiHomePage.objProgressBar, 1000, "Progress Bar")) {	
 //		screencapture();
 		Instant end = Instant.now();
 		Duration timeElapsed = Duration.between(start, end);
@@ -50408,7 +50441,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		
 		
 //		extent.HeaderChildNode("Launch hipi app");
-		waitUntilElementDisplayed(HipiHomePage.objProgressBar, 10);	
+		TimeStampwaitForElementDisplayediOS(HipiHomePage.objProgressBar, 10, "Progress Bar");	
 		
 		String str1 = getAttributValue("contentDescription", HipiHomePage.objProgressBar);
 		System.out.println(str1);
@@ -50444,6 +50477,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 //		extent.extentLogger("", "Feed screen seen  at Time----- " + end);
 
 	}
+	
 	
 	
 	
@@ -50561,9 +50595,9 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 				extent.extentLoggerPass("","<b>Processing time: " + processingTime+"<b>");
 	}
 	else {
-		logger.error("User is not able to login With Google");
-		Time_ExcelUpdate.TestCaseSummaryNode1("User is not able to login With Google");
-		extent.extentLoggerWarning("", "User is not able to login With Google");
+		logger.error("User is not able to login With yopmail");
+		Time_ExcelUpdate.TestCaseSummaryNode1("User is not able to login With yopmail");
+		extent.extentLoggerFail("", "User is not able to login With yopmail");
 	}
 	
 	

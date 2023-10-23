@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ANDROIDMPWA" parallel="tests" thread-count="2">  <!-- name="Android" -->
+<suite name="BrowserStackMPWA" parallel="tests" thread-count="2">  <!-- name="Android" -->
 		
 	<!-- <parameter name="userType" value="${UserType}"/> Guest/NonSubscribedUser
 	<parameter name="runMode" value="${runMode}"/> <parameter name="runModule" 
 	value="${runModule}"/> <parameter name="browserType" value="${browserType}"/> --> 
-	<parameter name="browserType" value="MPWA"/>
+	<parameter name="browserType" value="BrowserStackMPWA"/>
 	<parameter name="url" value="https://preprod.hipi.co.in/" />
 	<parameter name="userType" value="Guest" />  <!-- Guest/NonSubscribedUser-->
 	
@@ -151,7 +151,11 @@
 	
 	<test name="AndroidHiPiNeo">
 		<classes>
-			<class name="com.zee5.Android_HipiScripts.Android_MWEB" />
+			<class name="com.zee5.Android_HipiScripts.Android_MWEB">
+			<methods>
+			<include name = "launchApptime"></include>
+			</methods>
+			</class>
 			
 		</classes>
 	</test> 

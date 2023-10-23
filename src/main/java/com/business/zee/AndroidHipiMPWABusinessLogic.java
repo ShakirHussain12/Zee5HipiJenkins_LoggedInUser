@@ -15,8 +15,10 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.xmlbeans.UserType;
 import org.openqa.selenium.By;
@@ -1241,9 +1243,19 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		Time_ExcelUpdate.TestCaseSummaryNode1("Feed Screen launch time.");
 		Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
 		extent.HeaderChildNode("Launching hipi PWA");
+		
+		
 
+	    Map<String, Object> params = new HashMap();
+
+	    params.put("url", "hipi.co.in");
+
+	        params.put("package", "com.android.chrome");
+	    getDriver().executeScript("mobile:deepLink", new Object[]{params});
 		//			extent.HeaderChildNode("Launch hipi app");
-		getURl("https://hipi.co.in/");
+	    
+	    
+		/*getURl("https://hipi.co.in/");
 		Instant start = Instant.now();
 		//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
 		extent.extentLogger("", "clicked on hipi at Time----- "+ start);
@@ -1262,7 +1274,7 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		String Processingtimesec=Long.toString(timeElapsed.getSeconds());
 		String Processingtimemilli=Long.toString(timeElapsed.toMillis());	
 		Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
-		extent.extentLogger("", "Feed screen seen  at Time----- " + end);
+		extent.extentLogger("", "Feed screen seen  at Time----- " + end);*/
 
 	}
 

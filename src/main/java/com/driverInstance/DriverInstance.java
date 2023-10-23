@@ -93,6 +93,13 @@ public class DriverInstance extends Drivertools {
 			case "BrowserStackLogged":
 				tlDriver.set((AppiumDriver<WebElement>) new AndroidDriver<WebElement>(new URL(getBSremoteUrl()),this.generateCapabilitiesbrowserStack(Application)));
 			break;
+			
+			case "BrowserStackMPWA":
+				System.out.println("Asa");
+				tlDriver.set((AppiumDriver<WebElement>) new AndroidDriver<WebElement>(new URL(getBSremoteUrl()),this.generateCapabilitiesbrowserStack(Application)));
+//				System.out.println(getremoteUrl());
+//				tlDriver.get().get(getURL());
+				break;
 				
 				
 			default:
@@ -142,6 +149,12 @@ public class DriverInstance extends Drivertools {
 		capabilities.setCapability("os_version", "14.0");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+		capabilities.setCapability("browserstack.user", getBSuserID());
+		capabilities.setCapability("browserstack.key", getBSuserKey());
+		if (getPlatform().equals("BrowserStackMPWA")) {
+			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
+			return capabilities;
+		}
 		//capabilities.setCapability("browserstack.enableSim","true");
 		//HashMap<String, String> simOptions = new HashMap<String, String>();
 		//simOptions.put("region","USA");
@@ -151,8 +164,6 @@ public class DriverInstance extends Drivertools {
 			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 			return capabilities;
 		}*/
-		capabilities.setCapability("browserstack.user", getBSuserID());
-		capabilities.setCapability("browserstack.key", getBSuserKey());
 		capabilities.setCapability(MobileCapabilityType.APP, getBSappID());
 		capabilities.setCapability("autoGrantPermissions", "true");
 		return capabilities;

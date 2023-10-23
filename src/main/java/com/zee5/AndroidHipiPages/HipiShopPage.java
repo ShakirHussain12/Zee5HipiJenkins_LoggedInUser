@@ -6,7 +6,7 @@ import com.zee5.Applicaster.HIPI.HipiHomePage;
 
 public class HipiShopPage {
 	
-	
+	public static By objInThisVideo = By.xpath("(//*[@resource-id='com.zee5.hipi:id/tabTitleTxt'])[1]");
 	//Mini player
 	public static By objMiniPlayer = By.xpath("//*[@resource-id='com.zee5.hipi:id/exo_overlay']");
 	//Close Icon Mini Player

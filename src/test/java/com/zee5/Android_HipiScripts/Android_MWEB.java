@@ -20,12 +20,12 @@ public class Android_MWEB {
 		
 	}
 	
-//	@Test(priority = 0)
+	@Test(priority = 0)
 	@Parameters({ "userType"})
 	public void launchApptime(String userType) throws Exception {
 //		Thread.sleep(5000);
 		System.out.println("Enter Url");
-		AndroidHipiMPWABusinessLogic.relaunch(true);
+		//AndroidHipiMPWABusinessLogic.relaunch(true);
 //		AndroidHipiMPWABusinessLogic.getURl("https://www.hipi.co.in/hashtag-feed/hipikaromorekaro");
 //		Thread.sleep(5000);
 		AndroidHipiMPWABusinessLogic.launchApptime();	

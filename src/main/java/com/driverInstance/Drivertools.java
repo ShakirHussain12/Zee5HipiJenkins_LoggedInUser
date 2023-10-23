@@ -314,7 +314,8 @@ public class Drivertools {
 		setPort(Integer.parseInt(getHandler().getproperty("HOST_PORT")));
 		setappTimeOut(Integer.parseInt(getHandler().getproperty("APP_TIMEOUT")));
 		//setremoteUrl("http://" + getHost() + ":" + getPort() + "/wd/hub");
-		if(platform.equalsIgnoreCase("BrowserStackLogged") || platform.equalsIgnoreCase("IOSBrowserStack") || platform.equalsIgnoreCase("BrowserStackGuest")) {
+		if(platform.equalsIgnoreCase("BrowserStackLogged") || platform.equalsIgnoreCase("IOSBrowserStack") || platform.equalsIgnoreCase("BrowserStackGuest")
+				|| platform.equalsIgnoreCase("BrowserStackMPWA")) {
 			setBSuserID(getHandler().getproperty("userID"));
 			setBSuserKey(getHandler().getproperty("accessKey"));
 			setBSremoteUrl("http://" + getHost() + "/wd/hub");
@@ -378,7 +379,7 @@ public class Drivertools {
 		} else if (getPlatform().equals("Android")) {
 			setENV("Native App");
 			click = false;
-		} else if (getPlatform().equals("MPWA")) {
+		} else if (getPlatform().equals("MPWA") ) {
 			setENV("Chrome Application");
 			click = false;
 		} else if (getPlatform().equals("HIPI")) {
@@ -387,7 +388,7 @@ public class Drivertools {
 		}else if (getPlatform().equals("HIPI_iOS")) {
 			setENV("Native App");
 			click = false;
-		}else if (getPlatform().equals("ANDROIDMPWA")) {
+		}else if (getPlatform().equals("ANDROIDMPWA")  || getPlatform().equals("BrowserStackMPWA")) {
 			setENV("Native App");
 			click = false;
 		}
@@ -398,7 +399,7 @@ public class Drivertools {
 			setENV("Native App");
 			click = false;}
 		logger.info("PlatForm :: " + getPlatform());
-		if (Stream.of("Android", "ios", "Web", "MPWA", "TV", "HIPI","HIPI_iOS","iOSWeb","ANDROIDMPWA","BrowserStackGuest","BrowserStackLogged").anyMatch(getPlatform()::equals)) {
+		if (Stream.of("Android", "ios", "Web", "MPWA", "TV", "HIPI","HIPI_iOS","iOSWeb","ANDROIDMPWA","BrowserStackGuest","BrowserStackLogged","BrowserStackMPWA").anyMatch(getPlatform()::equals)) {
 			setHandler(new PropertyFileReader("properties/ExecutionControl.properties"));
 			if (getHandler().getproperty(getTestName()).equals("Y") && (getRunMode().contentEquals(getTestName()))
 					|| (getRunMode().contentEquals("Suites"))) {
