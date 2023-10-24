@@ -3270,7 +3270,7 @@ try {
 					logger.info("Back button is tapped");
 //					extent.extentLogger("Back", "Back button is tapped");
 				}
-			} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("ANDROIDMPWA") || getPlatform().equals("BrowserStack") || getPlatform().equals("IOSBrowserStack")) {
+			} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("ANDROIDMPWA") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")) {
 				for (int i = 0; i < x; i++) {
 					getDriver().navigate().back();
 					logger.info("Back button is tapped");
@@ -3290,7 +3290,7 @@ try {
 			
 			//For You is display its store in T
 			////For You is NOT display its store in F
-			 Back(1);
+//			Back(1);
 			System.out.println(flag);
 			if (flag) {
 				if (verifyElementDisplayed(HipiShopPage.objInThisVideo)) {
@@ -3311,12 +3311,14 @@ try {
 			TimeStamprelaunch(false);
 			
 		}
+		
 //		click(HipiHomePage.objHomeIcon, "Home Icon");
-		/*waitTime(4000);
+		waitTime(4000);
 		if(TimeStampverifyElementExist(HipiHomePage.objFollowButton, "Follow button")) {
 			TimeStampclick(HipiHomePage.objFollowButton, "Follow button");
 
-		}*/
+		}
+		
 		
 	}
 	public void TimeStamprelaunch(boolean clearData) throws Exception {
