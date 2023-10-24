@@ -48370,7 +48370,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 		extent.HeaderChildNode("On clicking Banner, screen load time.");
 
 		TimeStampverifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
-		waitTime(5000);
+		waitUntilElementDisplayed(HipiDiscoverPage.objBannersBelowTheSearchField, 10);
 		TimeStampverifyElementPresentAndClick(HipiDiscoverPage.objBannersBelowTheSearchField, "Video Banner");
 		Instant start=Instant.now();
 		logger.info("Start Time : " + start);
