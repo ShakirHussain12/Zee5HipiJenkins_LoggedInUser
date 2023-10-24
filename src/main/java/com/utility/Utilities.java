@@ -743,7 +743,7 @@ public  boolean waitForObjectNotDisplayed(By byLocator , String message ,int sec
 	}
 
 	public List<WebElement> findElements(By byLocator) {
-		if (getPlatform().equals("Android") || getPlatform().equals("MPWA") ||getPlatform().equals("HIPI_iOS") || getPlatform().equals("BrowserStack") || getPlatform().equals("IOSBrowserStack")) {
+		if (getPlatform().equals("Android") || getPlatform().equals("MPWA") ||getPlatform().equals("HIPI_iOS") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")) {
 			return getDriver().findElements(byLocator);
 		} else {
 			return getWebDriver().findElements(byLocator);
@@ -786,7 +786,7 @@ public  boolean waitForObjectNotDisplayed(By byLocator , String message ,int sec
 					logger.info("Back button is tapped");
 					extent.extentLogger("Back", "Back button is tapped");
 				}
-			} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("ANDROIDMPWA")|| getPlatform().equals("BrowserStack") || getPlatform().equals("IOSBrowserStack")) {
+			} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("ANDROIDMPWA")|| getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")) {
 				for (int i = 0; i < x; i++) {
 					getDriver().navigate().back();
 					logger.info("Back button is tapped");
@@ -2169,7 +2169,7 @@ try {
 						Thread.sleep(1000);
 					}
 				}
-			} else if (getPlatform().equals("Android") || getPlatform().equals("MPWA") || getPlatform().equals("HIPI")|| getPlatform().equals("BrowserStack") || getPlatform().equals("IOSBrowserStack")) {
+			} else if (getPlatform().equals("Android") || getPlatform().equals("MPWA") || getPlatform().equals("HIPI")|| getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")) {
 				for (int time = 0; time <= seconds; time++) {
 					try {
 						getDriver().findElement(locator).click();
@@ -3313,11 +3313,11 @@ try {
 		}
 		
 //		click(HipiHomePage.objHomeIcon, "Home Icon");
-		waitTime(4000);
+		/*waitTime(4000);
 		if(TimeStampverifyElementExist(HipiHomePage.objFollowButton, "Follow button")) {
 			TimeStampclick(HipiHomePage.objFollowButton, "Follow button");
 
-		}
+		}*/
 		
 		
 	}
