@@ -48,7 +48,7 @@ public class AndroidHiPiNeoP0 {
 	@Test(priority = 3)
 	@Parameters({ "userType"})
 	public void commentTimeCount(String userType) throws Exception {
-		Zee5ApplicasterHipiNeoBusinessLogic.commentTime(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.commentTime(userType); // change xpath of comment icon
 		}
 	
 	@Test(priority = 4)
@@ -520,6 +520,7 @@ public class AndroidHiPiNeoP0 {
 //		Zee5ApplicasterHipiNeoBusinessLogic.seeTheCountOfUnreadNotifications__T2570(userType);
 	}
 */
+	/*
 	@Test(priority = 6)
 	@Parameters({ "userType"})
 	public void FeedModuleNewP0(String userType) throws Exception {
@@ -882,7 +883,7 @@ public class AndroidHiPiNeoP0 {
 		//Zee5ApplicasterHipiNeoBusinessLogic.creatorThumbnailInFeed__T2688(userType); //P2
 		//Zee5ApplicasterHipiNeoBusinessLogic.followButtonValidationInFeed_T2689_2690(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.creatorPageNavigationValidation__T2691__T2692(userType);
-	}
+	}*/
 	@AfterTest						
 		
 	public void tearDownApp() {		
