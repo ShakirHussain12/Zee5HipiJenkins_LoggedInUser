@@ -888,7 +888,7 @@ public class HipiCreateVideoPage {
 		public static By objVideoEditScreenNextButton= By.xpath("//*[@id='ok_btn']");
 		//video Text edit screen Done botton
 		public static By objVideoEditScreenDoneButton= By.xpath("//*[@id='ok_btn']");
-		public static By objVideoEditScreenNext= By.xpath("//*[@id='next']");
+		public static By objVideoEditScreenNext= By.xpath("//*[@id='next'] | //*[@resource-id='com.zee5.hipi:id/next']");
 		//upload video from gallery First video	
 		public static By objGalleryFirstVideo= By.xpath("(//*[@id='media_recycleView']/*/*[@id='iv_item_image'])[1]");
 	//upload video from gallery Edit This Video Button	
