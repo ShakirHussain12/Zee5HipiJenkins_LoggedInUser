@@ -3312,11 +3312,11 @@ try {
 			
 		}
 //		click(HipiHomePage.objHomeIcon, "Home Icon");
-		waitTime(4000);
+		/*waitTime(4000);
 		if(TimeStampverifyElementExist(HipiHomePage.objFollowButton, "Follow button")) {
 			TimeStampclick(HipiHomePage.objFollowButton, "Follow button");
 
-		}
+		}*/
 		
 	}
 	public void TimeStamprelaunch(boolean clearData) throws Exception {
