@@ -48505,6 +48505,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 
 		
 		extent.HeaderChildNode("hashtag detail page time.");
+		waitUntilElementDisplayed(HipiHomePage.objDiscoverButton,10);
 		TimeStampverifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 		waitTime(3000);
 		TimeStampSwipe("UP",2);
@@ -48627,6 +48628,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 		Time_ExcelUpdate.ModuleNode("Discover");
 		
 		extent.HeaderChildNode("Carrousel/ Banner load time.");
+		waitUntilElementDisplayed(HipiHomePage.objDiscoverButton,10);
 		TimeStampverifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 		Instant start=Instant.now();
 		logger.info("Start Time : " + start);
@@ -48680,7 +48682,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 //		Date startTime = new Date();
 //		logger.info("Start Time : " + getDateDetails(startTime));
 //		extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
-		if(waitUntilElementDisplayed(HipiDiscoverPage.objTopButton, 10)) {
+		if(waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchInbox, 10)) {
 		Instant end=Instant.now();
 		logger.info("End Time : " + end);
 //		extent.extentLogger("", "<b>End Time : " + end+"<b>");

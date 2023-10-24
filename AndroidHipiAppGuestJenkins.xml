@@ -173,7 +173,7 @@
 			<include name = "BannerLoadTime"></include>
 			<include name = "SearchScreenTimePostSearchingAKeyword"></include>
 			<include name = "VideoStartUpTimeAfterSwipe"></include>
-			<include name = "logout"></include> 
+			<!-- <include name = "logout"></include>--> 
 			</methods>
 			
 				</class>

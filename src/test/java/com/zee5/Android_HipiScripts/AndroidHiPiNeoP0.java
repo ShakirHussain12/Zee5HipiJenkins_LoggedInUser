@@ -99,7 +99,7 @@ public class AndroidHiPiNeoP0 {
 	@Parameters({ "userType"})
 	public void SearchScreenTimePostSearchingAKeyword(String userType) throws Exception {
 	
-		Zee5ApplicasterHipiNeoBusinessLogic.SearchScreenTimePostSearchingAKeyword("kundali");
+		Zee5ApplicasterHipiNeoBusinessLogic.SearchScreenTimePostSearchingAKeyword("kundali"); // change xpath of top button
 		
 	}
 	
