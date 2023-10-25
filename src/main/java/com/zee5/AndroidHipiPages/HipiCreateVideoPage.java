@@ -127,7 +127,7 @@ public class HipiCreateVideoPage {
 	// effects
 	// public static By objeffect=By.xpath("//*[@class='android.widget.TextView'
 	// and @text='Effects']");
-	public static By objeffect = By.xpath("//*[@id='effect_button_img']");
+	public static By objeffect = By.xpath("//*[@id='effect_button_img'] | //*[@resource-id='com.zee5.hipi:id/effect_button_img']");
 	// favourite effect
 	public static By objeffectfavourite = By.xpath("//*[@class='android.widget.TextView' and @text='Cyber Helmet ']");
 	// download
@@ -170,7 +170,7 @@ public class HipiCreateVideoPage {
 
 
 	// filter
-	public static By objfilter = By.xpath("(//*[@id='operation_layout']/*/*[@id='toggle_image'])[3]");
+	public static By objfilter = By.xpath("(//*[@id='operation_layout']/*/*[@id='toggle_image'])[3] | (//*[@resource-id='com.zee5.hipi:id/toggle_image'])[3]");
 	public static By objHighlightedFiltericon = By
 			.xpath("//*[contains(@resource-id,'filter_toggle') and @checked='true']");
 	// firsteffectbeforedownload
@@ -890,11 +890,11 @@ public class HipiCreateVideoPage {
 		public static By objVideoEditScreenDoneButton= By.xpath("//*[@id='ok_btn']");
 		public static By objVideoEditScreenNext= By.xpath("//*[@id='next'] | //*[@resource-id='com.zee5.hipi:id/next']");
 		//upload video from gallery First video	
-		public static By objGalleryFirstVideo= By.xpath("(//*[@id='media_recycleView']/*/*[@id='iv_item_image'])[1]");
+		public static By objGalleryFirstVideo= By.xpath("(//*[@id='media_recycleView']/*/*[@id='iv_item_image'])[1] | (//*[@resource-id='com.zee5.hipi:id/iv_item_image'])[1]");
 	//upload video from gallery Edit This Video Button	
 		public static By objGalleryEditThisVideoButton= By.xpath("//*[@id='sigle_tv_startEdit'] | //*[@resource-id='com.zee5.hipi:id/media_tv_startEdit']");
 	//upload video from gallery video Tick button
-		public static By objGalleryVideoTickButton= By.xpath("//*[@id='trimFinish']");
+		public static By objGalleryVideoTickButton= By.xpath("//*[@id='trimFinish'] |//*[@resource-id='com.zee5.hipi:id/trimFinish']");
 	//upload video from gallery video trim left handler
 		public static By objTrimlefthandle = By.xpath("(//*[contains(@resource-id,'leftHandle')])[2]");	
 	//uploaded video Thumbnail

@@ -1245,17 +1245,17 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		extent.HeaderChildNode("Launching hipi PWA");
 		
 		
-
+		  AndroidDriver driver = (AndroidDriver)getDriver();
 	    Map<String, Object> params = new HashMap();
 
-	    params.put("url", "hipi.co.in");
+	    params.put("url", "https://hipi.co.in");
 
 	        params.put("package", "com.android.chrome");
-	    getDriver().executeScript("mobile:deepLink", new Object[]{params});
+	        driver.executeScript("mobile:deepLink", new Object[]{params});
 		//			extent.HeaderChildNode("Launch hipi app");
 	    
 	    
-		/*getURl("https://hipi.co.in/");
+		//getURl("https://hipi.co.in/");
 		Instant start = Instant.now();
 		//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
 		extent.extentLogger("", "clicked on hipi at Time----- "+ start);
@@ -1274,7 +1274,7 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		String Processingtimesec=Long.toString(timeElapsed.getSeconds());
 		String Processingtimemilli=Long.toString(timeElapsed.toMillis());	
 		Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
-		extent.extentLogger("", "Feed screen seen  at Time----- " + end);*/
+		extent.extentLogger("", "Feed screen seen  at Time----- " + end);
 
 	}
 

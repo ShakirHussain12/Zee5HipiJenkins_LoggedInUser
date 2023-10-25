@@ -126,7 +126,7 @@ public class HipiHomePage {
 		//Comment post Icon
 		public static By objCommentPostIcon=By.xpath("//*[@resource-id='com.zee5.hipi:id/commentPost']");
 		//First Comment
-		public static By objFirstComment=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='comment'])[1]");
+		public static By objFirstComment=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='comment'])[1] | (//*[@resource-id='com.zee5.hipi:id/comment'])[1]");
 		//First Comment User Name
 		public static By objFirstCommentUserName=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='userName'])[1]");
 		//Comment Text

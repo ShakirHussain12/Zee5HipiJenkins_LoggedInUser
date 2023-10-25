@@ -3312,6 +3312,9 @@ try {
 			
 		}
 		
+		if(verifyElementExist(HipiHomePage.objClaimNowButton,"Claim rewards popup")) {
+			Back(1);
+		}
 //		click(HipiHomePage.objHomeIcon, "Home Icon");
 		/*waitTime(4000);
 		if(TimeStampverifyElementExist(HipiHomePage.objFollowButton, "Follow button")) {

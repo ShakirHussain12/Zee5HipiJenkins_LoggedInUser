@@ -145,16 +145,16 @@ public class DriverInstance extends Drivertools {
 	
 	public DesiredCapabilities generateCapabilitiesbrowserStack(String application) {
 		System.out.println("Capability-BrowserStack");
-		capabilities.setCapability("device", "Google Pixel 8 Pro");
-		capabilities.setCapability("os_version", "14.0");
+		capabilities.setCapability("device", "Google Pixel 7 Pro");
+		capabilities.setCapability("os_version", "13.0");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		capabilities.setCapability("browserstack.user", getBSuserID());
 		capabilities.setCapability("browserstack.key", getBSuserKey());
-		if (getPlatform().equals("BrowserStackMPWA")) {
+		/*if (getPlatform().equals("BrowserStackMPWA")) {
 			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 			return capabilities;
-		}
+		}*/
 		//capabilities.setCapability("browserstack.enableSim","true");
 		//HashMap<String, String> simOptions = new HashMap<String, String>();
 		//simOptions.put("region","USA");
