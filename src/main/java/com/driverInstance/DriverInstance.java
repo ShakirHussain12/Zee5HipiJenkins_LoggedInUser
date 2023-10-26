@@ -145,8 +145,8 @@ public class DriverInstance extends Drivertools {
 	
 	public DesiredCapabilities generateCapabilitiesbrowserStack(String application) {
 		System.out.println("Capability-BrowserStack");
-		capabilities.setCapability("device", "Google Pixel 7 Pro");
-		capabilities.setCapability("os_version", "13.0");
+		capabilities.setCapability("device", "Google Pixel 8 Pro");
+		capabilities.setCapability("os_version", "14.0");
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		capabilities.setCapability("browserstack.user", getBSuserID());
@@ -363,7 +363,7 @@ public class DriverInstance extends Drivertools {
 //		
 //		int port = 4723;
 //		if(!checkIfServerIsRunnning(port)) {
-//			startServer();
+//		startServer();
 //			startServer1();
 ////			stopServer();
 //		} else {
