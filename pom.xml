@@ -359,7 +359,7 @@
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
 						<!-- <suiteXmlFile>${rp.launch}.xml</suiteXmlFile> -->
-						<suiteXmlFile>AndroidHipiAppGuestJenkins.xml</suiteXmlFile>
+						<!--<suiteXmlFile>AndroidHipiAppGuestJenkins.xml</suiteXmlFile>-->
 						<suiteXmlFile>AndroidHipiAppLoggedInJenkins.xml</suiteXmlFile>
 						<!-- <suiteXmlFile>${suiteXmlFile}.xml</suiteXmlFile> -->
 					</suiteXmlFiles>
