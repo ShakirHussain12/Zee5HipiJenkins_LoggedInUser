@@ -3305,8 +3305,8 @@ try {
 				waitTime(2000);
 			}
 		}
-		if(TimeStampverifyElementExist(MPWAHomePage.objHomeIcon, "Home Icon")) {
-			click(MPWAHomePage.objHomeIcon, "Home icon");
+		if(TimeStampverifyElementExist(MPWAHomePage.objForYou, "For you")) {
+			click(MPWAHomePage.objForYou, "For you");
 			System.out.println("User is able to see Home page");
 		}else {
 			TimeStamprelaunch(false);

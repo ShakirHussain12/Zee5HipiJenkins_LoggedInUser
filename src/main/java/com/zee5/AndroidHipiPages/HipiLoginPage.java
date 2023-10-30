@@ -427,6 +427,9 @@ public class HipiLoginPage {
 			   //yopmail inbox
 			   public static By objInbox = By.xpath("(//*[@class='android.widget.Button' and contains(@text,'OTP')])[1]");
 			   
+			   //inside inbox
+			   public static By objFirstMail = By.xpath("(//*[@class='android.widget.TextView' and contains(@text,'Hipi')])[1]");
+			   
 }
 				 
 

@@ -47981,9 +47981,6 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 			extent.HeaderChildNode("Launching hipi app");
 			
 //			extent.HeaderChildNode("Launch hipi app");
-			getDriver().quit();
-			waitTime(3000);
-			new Zee5ApplicasterHipiNeoBusinessLogic("zee");
 //			if(TimeStampverifyElementExist(HipiHomePage.objUpdate, "Update Button"))
 //				{
 			
@@ -48741,7 +48738,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 				waitTime(5000);
 				for(int i=1; i<=15; i++) {
 					if (TimeStampverifyElementExist(HipiCreateVideoPage.obj00sec, "00sec")) {
-						TimeStampnavigateToHomePage();
+						loginWithGoogleBrowserStack("NonSubscribedUser");
 						waitTime(4000);
 						TimeStampclick(HipiHomePage.objVideoCreateIcon, "Create button");
 						waitTime(4000);
@@ -48756,7 +48753,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 					}
 
 //				TimeStamptimeTakeClickingOnNextButton();
-				waitUntilElementDisplayed(HipiCreateVideoPage.objVideoEditScreenNext, 25);
+				waitUntilElementDisplayed(HipiCreateVideoPage.objVideoEditScreenNext, 90);
 				TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objVideoEditScreenNext, "Next");
 				Instant start=Instant.now();
 				logger.info("Start Time : " + start);
@@ -50431,9 +50428,6 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		extent.HeaderChildNode("Video startup time");
 		
 //		extent.HeaderChildNode("Launch hipi app");
-		getDriver().quit();
-		waitTime(3000);
-		new Zee5ApplicasterHipiNeoBusinessLogic("zee");
 //		if(TimeStampverifyElementExist(HipiHomePage.objUpdate, "Update Button"))
 //		{
 //	
@@ -57411,8 +57405,10 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	type(HipiLoginPage.objEmailInput,randomMail,"Yopmail email input");
 	click(HipiLoginPage.objmailSubmit,"submit");
 	waitTime(6000);
-	String otp = getDriver().findElement(HipiLoginPage.objInbox).getText().substring(10,14);
-	System.out.println( getDriver().findElement(HipiLoginPage.objInbox).getText());
+	click(HipiLoginPage.objInbox,"First mail");
+	waitUntilElementDisplayed(HipiLoginPage.objFirstMail,10);
+	String otp = getDriver().findElement(HipiLoginPage.objFirstMail).getText().substring(0,4);
+	System.out.println(otp);
 	String[] otpArray = otp.split("");
 	System.out.println(otpArray[0]);
 	getDriver().activateApp("com.zee5.hipi");
@@ -58071,20 +58067,20 @@ extent.extentLogger("","MPWA - Top videos 2nd video name fetched");
 ////	TimeStampverifyElementExist(IOSHiPiNeoDiscoverPage.objiosTabnameInDiscoverSearchResultsPage("Hashtags"), "HashTags Tab in search result ");
 ////		TimeStampclick(IOSHiPiNeoDiscoverPage.objiosTabnameInDiscoverSearchResultsPage("Hashtags"), "Hashtags");
 		TimeStampclick(MPWADiscoverPage.objHashhtagsButton, "Hashtags Tab");	
-		waitUntilElementDisplayed(MPWADiscoverPage.objListofFirstHashtags(1), 5);
-		if(TimeStampverifyElementExist(MPWADiscoverPage.objListofFirstHashtags(1), "Hashtag result")) {
-		String HashTag1=getText(MPWADiscoverPage.objListofFirstHashtags(1));
+		waitUntilElementDisplayed(MPWADiscoverPage.objListofFirstHashtags(0), 5);
+		if(TimeStampverifyElementExist(MPWADiscoverPage.objListofFirstHashtags(0), "Hashtag result")) {
+		String HashTag1=getText(MPWADiscoverPage.objListofFirstHashtags(0));
 		System.out.println(HashTag1);
-		String HashTag2=getText(MPWADiscoverPage.objListofFirstHashtags(2));
+		String HashTag2=getText(MPWADiscoverPage.objListofFirstHashtags(1));
 		System.out.println(HashTag2);
 		
-		String HashTag3=getText(MPWADiscoverPage.objListofFirstHashtags(3));
+		String HashTag3=getText(MPWADiscoverPage.objListofFirstHashtags(2));
 		System.out.println(HashTag3);
 		
-		String HashTag4=getText(MPWADiscoverPage.objListofFirstHashtags(4));
+		String HashTag4=getText(MPWADiscoverPage.objListofFirstHashtags(3));
 		System.out.println(HashTag4);
 		
-		String HashTag5=getText(MPWADiscoverPage.objListofFirstHashtags(5));
+		String HashTag5=getText(MPWADiscoverPage.objListofFirstHashtags(4));
 		System.out.println(HashTag5);
 		
 		Time_ExcelUpdate.TestCaseSummaryNode1("1. "+HashTag1);

@@ -48,9 +48,9 @@ public class MPWADiscoverPage {
 
 		public static By objVideosButton = By.xpath("(//*[@class=''])[2]");
 
-		public static By objHashhtagsButton = By.xpath("(//*[@class=''])[3]");
+		public static By objHashhtagsButton = By.xpath("(//*[@class=''])[3] | //*[@resource-id='3']");
 		 public static By objListUserProfile(int index) {
-		    	return By.xpath("(//*[@class='font-medium text-sm text-gray-700'])[" + index + "]");
+		    	return By.xpath("(//*[@class='font-medium text-sm text-gray-700'])[" + index + "] | (((//*[@class='android.view.View' and @index='6'])[1]/child::*)[" + index + "]/child::*)[2]");
 
 		    }
 		 public static By objListOfVideosInVideoStab(int index) {
@@ -58,7 +58,7 @@ public class MPWADiscoverPage {
 
 		     }
 		 public static By objListofFirstHashtags(int index) {
-	        	return By.xpath("(//*[@class='ml-4'])[" + index + "]");
+	        	return By.xpath("(//*[@class='ml-4'])[" + index + "] | ((//*[@class='android.view.View'])[" + (index + 7) + "]/child::*)[2]");
 	        }
 		 
 }

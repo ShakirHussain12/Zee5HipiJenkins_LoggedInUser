@@ -322,7 +322,7 @@ public class AndroidHiPiNeoP0 {
 		
 	}
 	
-	//@Test(priority = 29)
+	@Test(priority = 29)
 	@Parameters({ "userType"})
 	public void SearchMpwa(String userType) throws Exception {
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("Love","MPWA  TC012");
