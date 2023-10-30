@@ -166,6 +166,7 @@ public class DriverInstance extends Drivertools {
 		}*/
 		capabilities.setCapability(MobileCapabilityType.APP, getBSappID());
 		capabilities.setCapability("autoGrantPermissions", "true");
+		capabilities.setCapability("autoAcceptAlerts", "true");
 		return capabilities;
 	}
 	

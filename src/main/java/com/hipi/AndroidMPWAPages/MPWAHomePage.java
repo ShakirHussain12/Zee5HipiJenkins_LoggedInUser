@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class MPWAHomePage {
 	
-	public static By objDiscoverButton = By.xpath("(//*[@class='flex flex-col text-white text-xs items-center'])[2] | //*[@resource-id='Explore_icon_for_You']");
+	public static By objDiscoverButton = By.xpath("(//*[@class='flex flex-col text-white text-xs items-center'])[2] | //*[@resource-id='Explore_icon_for_You'] | //*[@text='Explore'] | (//div[@name='Explore_icon_for_You'])[1]");
 	
 	public static By objProfileIcon = By.xpath("//*[@class='flex flex-col  items-center justify-between'] | //*[@resource-id='Profile_Icon_for_You']");
 	
@@ -14,9 +14,9 @@ public class MPWAHomePage {
 	
 	public static By objLikeIcon = By.xpath("(//*[@id='like'])[1] | //*[@class='android.widget.Image' and (./preceding-sibling::* | ./following-sibling::*)[@id='Number_of_Likes']]");
 	
-	public static By objUserNameInFeedScreen = By.xpath("//*[@class=' mb-1 mt-1.5 font-semibold text-sm flex ']");
+	public static By objUserNameInFeedScreen = By.xpath("//*[@class=' mb-1 mt-1.5 font-semibold text-sm flex '] | //*[@resource-id='Username_for_You']");
 
-	public static By objSwipeUpForNextVideo = By.xpath("//*[@class='flex py-2 px-4 bg-gray text-white font-medium mt-12']");
+	public static By objSwipeUpForNextVideo = By.xpath("//*[@class='flex py-2 px-4 bg-gray text-white font-medium mt-12'] | //*[@text='Swipe up for next video']/preceding-sibling::*");
 
 	public static By objCommentButton = By.xpath("//*[@class='android.widget.Image' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View' and ./*[@id='UserProfile_for_You']]]]");
 
@@ -28,7 +28,7 @@ public class MPWAHomePage {
 
 	public static By objInstallButton = By.xpath("//*[@contentDescription='Install']");
 
-	public static By objProgressBar=By.xpath("//*[@class='absolute top-0 left-0 h-1 bg-gray-100 ']");
+	public static By objProgressBar=By.xpath("//*[@class='absolute top-0 left-0 h-1 bg-gray-100'] | //*[@resource-id='exo_progress']");
 
 	public static By objProgressBarID=By.xpath("//*[@css='SPAN.absolute.top-0.left-0.h-1.bg-gray-100']");
 
@@ -95,7 +95,7 @@ public class MPWAHomePage {
 	public static By objHandiAnimation =By.xpath("//*[@class='android.widget.Image' and ./parent::*[./parent::*[@id='swipe_up']] and (./preceding-sibling::* | ./following-sibling::*)[@class='android.widget.TextView']]");
 	
 	
-	
+	public static By objAcceptAllCookies = By.className("android.widget.Button");
 	
 }
 

@@ -56,7 +56,8 @@ import com.emailReport.GmailInbox;
 import com.excel.Time_ExcelUpdate;
 import com.excel.WriteDataCSV;
 import com.extent.ExtentReporter;
-
+import com.hipi.AndroidMPWAPages.MPWADiscoverPage;
+import com.hipi.AndroidMPWAPages.MPWAHomePage;
 import com.propertyfilereader.PropertyFileReader;
 import com.utility.LoggingUtils;
 import com.utility.Utilities;
@@ -50548,7 +50549,7 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		Time_ExcelUpdate.TestCaseIDNode("TC042");
 //		Time_ExcelUpdate.SlNoNode("2");
 		Time_ExcelUpdate.ModuleNode("Login with google Module");
-		Time_ExcelUpdate.TestCaseSummaryNode1("Login With Google Time");
+		Time_ExcelUpdate.TestCaseSummaryNode1("Login With yopmail Time");
 		
 //		extent.HeaderChildNode("Launching hipi app");
 		extent.HeaderChildNode("Google Login Functionality");
@@ -50570,9 +50571,30 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		//9152104924
 		
 		//getDriver().get("https://yopmail.com/en/");
+		/*boolean flag = false;
+		for (int i = 1; i < 10; i++) {
+			flag = verifyElementDisplayed(MPWAHomePage.objForYou);
+			
+			//For You is display its store in T
+			////For You is NOT display its store in F
+//			Back(1);
+			System.out.println(flag);
+			if (flag) {
+				if (verifyElementDisplayed(HipiShopPage.objInThisVideo)) {
+					TimeStampBack(1);
+					click(HipiHomePage.objHomeIcon, "Home icon");
+					waitTime(3000);
+				}
+				break;
+			} else {
+				TimeStampBack(1);
+				waitTime(2000);
+			}
+		}*/
 		waitTime(5000);
 		String randEmail = signUpWithRandomMail();
 		randomEmailOtp(randEmail);
+		
 		/*
 		waitUntilElementDisplayed(AMDHomePage.objProfileIcon, 10);
 		
@@ -50834,8 +50856,9 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objuploadvideo,"Upload");
 		waitTime(3000);
 		TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objGalleryFirstVideo,"First video");
+		
 		waitTime(4000);
-		TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objGalleryEditThisVideoButton,"Edit This Video");
+		TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objEditClipAddMedia,"Add Media");
 		waitTime(3000);
 		
 		TimeStampverifyElementPresentAndClick(HipiCreateVideoPage.objGalleryVideoTickButton, "Tick button");
@@ -57384,20 +57407,26 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	
 	waitTime(3000);
 	click(HipiLoginPage.objEmailInput,"Yopmail email input");
-	
+	waitTime(3000);
 	type(HipiLoginPage.objEmailInput,randomMail,"Yopmail email input");
 	click(HipiLoginPage.objmailSubmit,"submit");
 	waitTime(6000);
 	String otp = getDriver().findElement(HipiLoginPage.objInbox).getText().substring(10,14);
+	System.out.println( getDriver().findElement(HipiLoginPage.objInbox).getText());
 	String[] otpArray = otp.split("");
 	System.out.println(otpArray[0]);
 	getDriver().activateApp("com.zee5.hipi");
-
+	waitTime(4000);
+	click(HipiLoginPage.objFirstDigit,"Enter otp");
 	type(HipiLoginPage.objFirstDigit,otpArray[0],"Enter otp");
+	click(HipiLoginPage.objSecondDigit,"Enter otp");
 	type(HipiLoginPage.objSecondDigit,otpArray[1],"Enter otp");
+	click(HipiLoginPage.objThirdDigit,"Enter otp");
 	type(HipiLoginPage.objThirdDigit,otpArray[2],"Enter otp");
+	click(HipiLoginPage.objFourthDigit,"Enter otp");
 	type(HipiLoginPage.objFourthDigit,otpArray[3],"Enter otp");
 	
+	waitTime(2000);
 	click(HipiLoginPage.objVerifyOTPCTA,"Verify OTP CTA");
 	waitTime(2000);
 }
@@ -57410,6 +57439,7 @@ public String signUpWithRandomMail() throws Exception{
 	waitUntilElementDisplayed(HipiLoginPage.objSignUpScreenTittle,10);
 	String randomEmail = "vikashp@yopmail.com";
 	type(HipiLoginPage.objEmailIDOrMobileNumberFileld,"vikashp@yopmail.com","Email id or phone number field");
+	waitTime(3000);
 	click(HipiLoginPage.objProceedButton,"Proceed button");
 	//click(HipiLoginPage.objProceedButton,"Proceed button");
 	waitTime(3000);
@@ -57425,6 +57455,671 @@ public String signUpWithRandomMail() throws Exception{
 	return randomEmail;
 }
 
+///////////////////////////////MPWA BrowserStack//////////////////////////////////////////////////////
 
+public void mpwaStart() throws Exception{
+	extent.HeaderChildNode("Launching hipi and check Progress bar");
+
+		getDriver().removeApp("com.zee5.hipi");
+	    Map<String, Object> params = new HashMap();
+
+	    params.put("url", "https://hipi.co.in");
+
+	        params.put("package", "com.android.chrome");
+	   getDriver().executeScript("mobile:deepLink", new Object[]{params});
+	   
+	   
+		waitUntilElementDisplayed(MPWAHomePage.objForYou, 20);
+		waitTime(15000);
+			//JSClick(MPWAHomePage.objAcceptAllCookies,"Accept all cookies");
+		TimeStamptapiOSAtCoOrdinates(350,1600,1);
+		
+}
+
+public  void launchApptimeBrowserStack() throws Exception {
+
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC001");
+	//			Time_ExcelUpdate.SlNoNode("1");
+	Time_ExcelUpdate.ModuleNode("FeedArrival");
+	Time_ExcelUpdate.TestCaseSummaryNode1("Feed Screen launch time.");
+	Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
+	extent.HeaderChildNode("Launching hipi PWA");
+	
+	//new com.business.zee.Zee5ApplicasterHipiNeoBusinessLogic("zee");
+	  //AndroidDriver driver = (AndroidDriver)getDriver();
+   
+	//getURl("https://hipi.co.in/");
+	Instant start = Instant.now();
+	//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
+	extent.extentLogger("", "clicked on hipi at Time----- "+ start);
+	logger.info("clicked on hipi at Time----- "+ start);
+	//			waitTime(10000);
+	//			TimeStampSwipe("UP", 1);
+	//			waitTime(4000);
+	
+	//clickElementWithWebLocator(MPWAHomePage.objForYou);
+	waitUntilElementDisplayed(MPWAHomePage.objForYou, 20);		
+	//			screencapture();
+	Instant end = Instant.now();
+	Duration timeElapsed = Duration.between(start, end);
+	extent.HeaderChildNode("the arrival time of feed screen from splash screen " +"Time taken in Seconds : "+timeElapsed.getSeconds()+" Seconds");
+	System.out.println("Time taken in Seconds : "+timeElapsed.getSeconds()+" Seconds" );
+	//			extent.HeaderChildNode("the arrival time of feed screen from splash screen " +"Time taken in milliseconds : "+timeElapsed.toMillis()+" milliSeconds");
+
+	String Processingtimesec=Long.toString(timeElapsed.getSeconds());
+	String Processingtimemilli=Long.toString(timeElapsed.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	extent.extentLogger("", "Feed screen seen  at Time----- " + end);
+
+}
+
+public  void launchApp_And_Check_ProgressBarBrowserStack() throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC002");
+	//			Time_ExcelUpdate.SlNoNode("1");
+	Time_ExcelUpdate.ModuleNode("FeedArrival");
+	Time_ExcelUpdate.TestCaseSummaryNode1("Feed Screen Progress bar launch time.");
+	//			Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
+	extent.HeaderChildNode("Launching hipi and check Progress bar");
+
+	//			extent.HeaderChildNode("Launch hipi app");
+
+	Instant start = Instant.now();
+	//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
+	//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
+
+	TimeStampwaitForElementDisplayediOS(MPWAHomePage.objProgressBar, 10, "Progress Bar");		
+	//			screencapture();
+	Instant end = Instant.now();
+	Duration timeElapsed = Duration.between(start, end);
+	extent.HeaderChildNode("the arrival time of feed screen from splash screen " +"Time taken in Seconds : "+timeElapsed.getSeconds()+" Seconds");
+	System.out.println("Time taken in Seconds : "+timeElapsed.getSeconds()+" Seconds" );
+	extent.HeaderChildNode("the arrival time of feed screen from splash screen " +"Time taken in milliseconds : "+timeElapsed.toMillis()+" milliSeconds");
+
+	String Processingtimesec=Long.toString(timeElapsed.getSeconds());
+	String Processingtimemilli=Long.toString(timeElapsed.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	extent.extentLogger("", "Feed screen seen  at Time----- " + end);
+
+}
+
+public void verifyProgressBarBrowserStack() throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC003");
+	//			Time_ExcelUpdate.SlNoNode("1");
+	Time_ExcelUpdate.TestCaseSummaryNode1("Verify Progress bar is moving");
+	Time_ExcelUpdate.ModuleNode("Verify Progress bar is moving");
+	//			Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
+	extent.HeaderChildNode("Launching hipi and check Progress bar");
+
+	//			extent.HeaderChildNode("Launch hipi app");
+	TimeStampwaitForElementDisplayediOS(MPWAHomePage.objProgressBar, 10, "Progress Bar");	
+
+	String str1 = getAttributValue("style", MPWAHomePage.objProgressBar);
+	System.out.println(str1);
+	waitTime(5000);
+	String str2 = getAttributValue("style", MPWAHomePage.objProgressBarID);
+	System.out.println(str2);
+	if (!str1.equals(str2)) {
+		Time_ExcelUpdate.TestCaseSummaryNode1("progress bar is moving Properly");
+		System.out.println("progress bar is moving Properly");
+	}else {
+		Time_ExcelUpdate.TestCaseSummaryNode1("progress bar is not moving Properly");
+		System.out.println("progress bar is not moving Properly");
+	}
+
+
+	//			Instant start = Instant.now();
+	//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
+	//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
+
+
+	////			screencapture();
+	//			Instant end = Instant.now();
+	//			Duration timeElapsed = Duration.between(start, end);
+	//			extent.HeaderChildNode("the arrival time of feed screen from splash screen " +"Time taken in Seconds : "+timeElapsed.getSeconds()+" Seconds");
+	//			System.out.println("Time taken in Seconds : "+timeElapsed.getSeconds()+" Seconds" );
+	//			extent.HeaderChildNode("the arrival time of feed screen from splash screen " +"Time taken in milliseconds : "+timeElapsed.toMillis()+" milliSeconds");
+	//			
+	//			String Processingtimesec=Long.toString(timeElapsed.getSeconds());
+	//			String Processingtimemilli=Long.toString(timeElapsed.toMillis());	
+	//			Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	//			extent.extentLogger("", "Feed screen seen  at Time----- " + end);
+
+}
+
+public void SwipeUpForNextVideoAnimation(String userType) throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC004");
+//	Time_ExcelUpdate.SlNoNode("1");
+	Time_ExcelUpdate.ModuleNode("MPWA - Feed");
+//	Time_ExcelUpdate.TestCaseSummaryNode1("Verify Swipe up for next video Animation");
+	extent.HeaderChildNode("MPWA - Verify Swipe up for next video Animation");
+	
+	waitUntilElementDisplayed(MPWAHomePage.objSwipeUpForNextVideo, 20);
+	
+	if(TimeStampverifyElementExist(MPWAHomePage.objSwipeUpForNextVideo, "Swipe Up For Next Video")){
+		logger.info("MPWA - User is able to see Swipe Up For Next Video Animation");	
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - User is able to see Swipe Up For Next Video Animation");
+		extent.extentLoggerPass("", "MPWA - User is able to see Swipe Up For Next Video Animation");
+	}else {
+		logger.info("MPWA - User is able to see Swipe Up For Next Video Animation");	
+//		extent.extentLoggerFail("", "User is not able to Logout application");
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - User is not able to see Swipe Up For Next Video Animation");
+
+	}
+	}
+	
+public void MpwaDiscoverScreenLoadTime() throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC006");
+//	Time_ExcelUpdate.SlNoNode("4");
+	Time_ExcelUpdate.ModuleNode("MPWA - Discover");
+	Time_ExcelUpdate.ExpectedProcessingTime("2.5 Sec");
+	TimeStampSwipe("UP", 1);
+	Time_ExcelUpdate.TestCaseSummaryNode1("Discover screen load time");
+	extent.HeaderChildNode("MPWA - Discover screen load time");
+	waitUntilElementDisplayed(MPWAHomePage.objDiscoverButton, 5);
+	TimeStampverifyElementPresentAndClick(MPWAHomePage.objDiscoverButton, "Discover Button");
+	Instant start=Instant.now();
+	logger.info("Start Time : " + start);
+//	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
+	if(waitUntilElementDisplayed(MPWADiscoverPage.objFirstProfileName, 10)) {
+	Instant end=Instant.now();
+	logger.info("End Time : " + end);
+//	extent.extentLogger("", "<b>End Time : " + end+"<b>");
+	Duration processingTime = Duration.between(start, end);
+	logger.info("Processing time: " + processingTime);
+	String Processingtimesec=Long.toString(processingTime.getSeconds());
+	String Processingtimemilli=Long.toString(processingTime.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	extent.extentLogger("", "<b>Processing time: " + processingTime+"<b>");
+
+	extent.HeaderChildNode("<b>Discover screen Processing time: " + processingTime+"<b>");
+	}else {
+		Time_ExcelUpdate.timeStampNode("MPWA - Discover screen is not displayed");
+		extent.extentLoggerFail("", "MPWA - Discover screen is not displayed");	
+	}
+	TimeStampnavigateToHomePage();
+//	TimeStampBack(1);
+//	waitTime(5000);
+	
+}
+
+public void	AutoSuggestionTimeMpwa(String userName) throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC007");
+//	Time_ExcelUpdate.SlNoNode("4");
+	Time_ExcelUpdate.ModuleNode("MPWA - Discover");
+	Time_ExcelUpdate.ExpectedProcessingTime("2 Sec");
+
+	Time_ExcelUpdate.TestCaseSummaryNode1("Auto suggestion time.");
+	extent.HeaderChildNode("MPWA - Auto suggestion time.");
+	TimeStampSwipe("UP", 1);
+	waitUntilElementDisplayed(MPWAHomePage.objDiscoverButton, 5);
+	TimeStampverifyElementPresentAndClick(MPWAHomePage.objDiscoverButton, "Discover Button");
+	waitTime(4000);
+	TimeStampverifyElementPresentAndClick(MPWADiscoverPage.objSearchTab, "Send text ");
+	waitTime(4000);
+	TimeStamptype(MPWADiscoverPage.objSearchTab, userName, "Type value");
+	Instant start=Instant.now();
+	logger.info("Start Time : " + start);
+//	Date startTime = new Date();
+//	logger.info("Start Time : " + getDateDetails(startTime));
+//	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
+	if(waitUntilElementDisplayed(MPWADiscoverPage.objListOfSearchResult, 10)) {
+	Instant end=Instant.now();
+	logger.info("End Time : " + end);
+//	extent.extentLogger("", "<b>End Time : " + end+"<b>");
+	Duration processingTime = Duration.between(start, end);
+	logger.info("Processing time: " + processingTime);
+	String Processingtimesec=Long.toString(processingTime.getSeconds());
+	String Processingtimemilli=Long.toString(processingTime.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+//	extent.extentLogger("", "<b>Processing time: " + processingTime+"<b>");
+	extent.extentLogger("", "<b> MPWA -  Auto suggestion Processing time: " + processingTime+"<b>");
+//	extent.HeaderChildNode("<b> Auto suggestion Processing time: " + processingTime+"<b>");
+	}else {
+		Time_ExcelUpdate.timeStampNode("MPWA - Auto suggestion result is not displayed");
+		extent.extentLoggerFail("", "MPWA - Auto suggestion result is not displayed");
+	}
+	TimeStampnavigateToHomePage();
+//	TimeStampBack(1);
+//	waitTime(5000);
+}
+
+public void OnClickingBannerScreenLoadTimeMpwa(String userType) throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC008");
+	Time_ExcelUpdate.ModuleNode("MPWA - Discover");
+	Time_ExcelUpdate.ExpectedProcessingTime("2.5 Sec");
+
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - On clicking Banner, screen load time.");
+	extent.HeaderChildNode("MPWA - On clicking Banner, screen load time.");
+	TimeStampSwipe("UP", 1);
+	waitUntilElementDisplayed(MPWAHomePage.objDiscoverButton, 5);
+	TimeStampverifyElementPresentAndClick(MPWAHomePage.objDiscoverButton, "Discover Button");
+//	waitTime(5000);
+	waitUntilElementDisplayed(MPWADiscoverPage.objBannersBelowTheSearchField, 5);
+	waitTime(5000);
+	TimeStampverifyElementPresentAndClick(MPWADiscoverPage.objBannersBelowTheSearchField, "Video Banner");
+	
+	TimeStampBack(1);
+	Instant start=Instant.now();
+	logger.info("Start Time : " + start);
+//	Date startTime = new Date();
+//	logger.info("Start Time : " + getDateDetails(startTime));
+//	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
+	if(waitUntilElementDisplayed(MPWADiscoverPage.objBannersBelowTheSearchField, 20)) {
+	Instant end=Instant.now();
+	logger.info("End Time : " + end);
+//	extent.extentLogger("", "<b>End Time : " + end+"<b>");
+	Duration processingTime = Duration.between(start, end);
+	logger.info("Processing time: " + processingTime);
+	String Processingtimesec=Long.toString(processingTime.getSeconds());
+	String Processingtimemilli=Long.toString(processingTime.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	extent.extentLogger("", "<b> MPWA - Processing time: " + processingTime+"<b>");
+//	extent.HeaderChildNode("<b>Banner screen Processing time: " + processingTime+"<b>");
+//	TimeStampBack(1);
+//	waitTime(5000);
+//	TimeStampBack(1);
+//	waitTime(5000);
+	}else {
+		Time_ExcelUpdate.timeStampNode("MPWA - On clicking Banner, screen load time is not displayed");
+		extent.extentLoggerFail("", "MPWA - On clicking Banner, screen load time is not displayed");
+	}
+	TimeStampnavigateToHomePage();
+}
+
+public void hashtagDetailPageTimeMPWA() throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC009");
+	Time_ExcelUpdate.ModuleNode("MPWA - Discover");
+	Time_ExcelUpdate.ExpectedProcessingTime("2.5 Sec");
+
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - hashtag detail page time.");
+	extent.HeaderChildNode("MPWA - hashtag detail page time.");
+	TimeStampSwipe("UP", 1);
+	waitUntilElementDisplayed(MPWAHomePage.objDiscoverButton, 5);
+	TimeStampverifyElementPresentAndClick(MPWAHomePage.objDiscoverButton, "Discover Button");
+	waitUntilElementDisplayed(MPWADiscoverPage.objBannersBelowTheSearchField, 5);
+	TimeStampclick(MPWADiscoverPage.objMoreButtonTrendingOnHipi, "More Button");
+	Instant start=Instant.now();
+	logger.info("Start Time : " + start);
+//	Date startTime = new Date();
+//	logger.info("Start Time : " + getDateDetails(startTime));
+//	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
+	if(waitUntilElementDisplayed(MPWADiscoverPage.objBannerHeader, 10)) {
+	Instant end=Instant.now();
+	logger.info("End Time : " + end);
+//	extent.extentLogger("", "<b>End Time : " + end+"<b>");
+	Duration processingTime = Duration.between(start, end);
+	logger.info("Processing time: " + processingTime);
+	String Processingtimesec=Long.toString(processingTime.getSeconds());
+	String Processingtimemilli=Long.toString(processingTime.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	extent.extentLogger("", "<b> MPWA - Hashtag detail page Processing time: " + processingTime+"<b>");
+//	extent.HeaderChildNode("<b>Hashtag detail page Processing time: " + processingTime+"<b>");
+//	TimeStampBack(1);
+//	waitTime(5000);
+//	TimeStampBack(1);
+//	waitTime(5000);
+}else {
+	Time_ExcelUpdate.timeStampNode("MPWA - hashtag detail page time is not displayed");
+	extent.extentLoggerFail("", "MPWA - hashtag detail page time is not displayed");
+}
+	TimeStampnavigateToHomePage();
+} 
+
+public void SearchScreenTimePostSearchingAKeywordMpwa(String name) throws Exception {
+	Time_ExcelUpdate.TestCaseIDNode("MPWA TC011");
+	Time_ExcelUpdate.ModuleNode("MPWA - Discover");
+	Time_ExcelUpdate.ExpectedProcessingTime("4.5 Sec");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Search screen time post searching a keyword");
+	extent.HeaderChildNode("MPWA - Search screen time post searching a keyword");
+	TimeStampSwipe("UP", 1);
+	waitUntilElementDisplayed(MPWAHomePage.objDiscoverButton, 5);
+	TimeStampverifyElementPresentAndClick(MPWAHomePage.objDiscoverButton, "Discover Button");
+	waitUntilElementDisplayed(MPWADiscoverPage.objBannersBelowTheSearchField, 5);
+	TimeStampverifyElementPresentAndClick(MPWADiscoverPage.objSearchTab, "Search Box");
+	waitTime(4000);
+	TimeStamptype(MPWADiscoverPage.objSearchTab, name, "Type value");
+//	TimeStamphideKeyboard();
+	waitTime(3000);
+	TimeStampclick(MPWADiscoverPage.objListOfSearchResult, "Search result");
+	Instant start=Instant.now();
+	logger.info("Start Time : " + start);
+//	Date startTime = new Date();
+//	logger.info("Start Time : " + getDateDetails(startTime));
+//	extent.extentLogger("", "<b>Start Time : " + getDateDetails(startTime)+"<b>");
+	if(waitUntilElementDisplayed(MPWADiscoverPage.objSearchTab, 10)) {
+	Instant end=Instant.now();
+	logger.info("End Time : " + end);
+//	extent.extentLogger("", "<b>End Time : " + end+"<b>");
+	Duration processingTime = Duration.between(start, end);
+	logger.info("Processing time: " + processingTime);
+	String Processingtimesec=Long.toString(processingTime.getSeconds());
+	String Processingtimemilli=Long.toString(processingTime.toMillis());	
+	Time_ExcelUpdate.timeStampNode(Processingtimesec+"."+Processingtimemilli + " Sec");
+	extent.extentLogger("", "<b> MPWA - Search screen time post searching a keyword Processing time: " + processingTime+"<b>");
+//	extent.HeaderChildNode("<b>Search screen time post searching a keyword Processing time: " + processingTime+"<b>");
+//	TimeStampBack(1);
+//	waitTime(5000);
+//	TimeStampBack(1);
+//	waitTime(5000);
+}else {
+	Time_ExcelUpdate.timeStampNode("MPWA - Search screen time post searching a keyword is not displayed");
+	extent.extentLoggerFail("", "MPWA - Search screen time post searching a keyword is not displayed");
+}
+	TimeStampnavigateToHomePage();
+}
+
+public void searchResultsMpwa(String SearchItem,String TCID) throws Exception {
+	
+	extent.HeaderChildNode("MPWA - Search Result for "+SearchItem);
+	String Suggestions1="";
+	String Suggestions2="";
+	String Profile1="";
+	String Profile2="";
+	String Video1="";
+	String Video2="";
+	String Video3="";
+	String Video4="";
+	String Hashtags1="";
+	String Hashtags2="";
+	String Sounds1="";
+	String Sounds2="";
+	
+	logger.info("MPWA - Search Result for "+SearchItem);
+	Time_ExcelUpdate.TestCaseIDNode(TCID);
+	Time_ExcelUpdate.ModuleNode("MPWA - Search Suggetions: "+SearchItem);
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Search Suggetions: "+SearchItem);
+	TimeStampSwipe("UP", 1);
+//	waitTime(2000);
+	waitUntilElementDisplayed(MPWAHomePage.objDiscoverButton, 5);
+	TimeStampverifyElementPresentAndClick(MPWAHomePage.objDiscoverButton, "Discover Button");
+	waitUntilElementDisplayed(MPWADiscoverPage.objBannersBelowTheSearchField, 5);
+	TimeStampverifyElementPresentAndClick(MPWADiscoverPage.objSearchTab, "Search Tab");
+	waitTime(3000);
+	TimeStamptype(MPWADiscoverPage.objSearchTab, SearchItem, "Type value");
+	waitTime(5000);
+	
+	if(TimeStampverifyElementExist(MPWADiscoverPage.objsearchResults(1), "suggestions")) {
+	Suggestions1=getText(MPWADiscoverPage.objsearchResults(1));
+	System.out.println(Suggestions1);
+	Suggestions2=getText(MPWADiscoverPage.objsearchResults(2));
+	System.out.println(Suggestions2);
+	waitTime(3000);
+	
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("1 "+Suggestions1);
+	extent.extentLogger("","Search  1st Suggestion done");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("2 "+Suggestions2);
+	}else {
+		
+		//Time_ExcelUpdate.TestCaseSummaryNode1("Suggestion  not present");
+		
+		logger.info(TCID + "Suggestion  not present");
+	}
+	
+	TimeStampverifyElementPresentAndClick(MPWADiscoverPage.objListOfSearchResult, "Search result");
+////	waitTime(3000);
+	waitUntilElementDisplayed(MPWADiscoverPage.objListFirstuserProfile(1), 10);
+////	TimeStampwaitForElementDisplayedFastPolling(IOSHiPiNeoDiscoverPage.objiosProfileInDiscoverpage(1), 100, "results after search");
+	extent.extentLogger("","Search done");
+	
+	Time_ExcelUpdate.ModuleNode("MPWA - Top Users Section :"+SearchItem);
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Top Users Result: "+SearchItem);
+	Profile1=getText(MPWADiscoverPage.objListFirstuserProfile(1));
+	System.out.println(Profile1);
+	Profile2=getText(MPWADiscoverPage.objListFirstuserProfile(2));
+	System.out.println(Profile2);
+	waitTime(3000);
+	
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("1 "+Profile1);
+	extent.extentLogger("","MPWA - Top Users 1 st profile name fetched");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("2 "+Profile2);
+	extent.extentLogger("","MPWA - Top Users 2nd profile name fetched");
+	
+	
+	Time_ExcelUpdate.ModuleNode("MPWA - Top Videos Section:"+SearchItem);
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Top Videos Result:"+SearchItem);
+	
+////	PartialSwipe("UP", 1);
+//	if(TimeStampverifyElementExist(HipiDiscoverPage.objListOfVideos(1), "Videos in under Top section ")) {
+//	Video1=getText(HipiDiscoverPage.objListOfVideos(1));
+//	System.out.println(Video1);
+//	Video2=getText(HipiDiscoverPage.objListOfVideos(2));
+//	System.out.println(Video2);
+	if(TimeStampverifyElementExist(MPWADiscoverPage.objListOfVideos(1), "Videos in under Top section ")) {
+	waitTime(3000);
+	TimeStampclick(MPWADiscoverPage.objListOfVideos(1),"1 st video");
+	waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+	String Video1Username=getText(MPWAHomePage.objUserNameInFeedScreen);
+	TimeStampBack(1);
+	waitTime(5000);
+	
+	TimeStampclick(MPWADiscoverPage.objListOfVideos(2),"2nd video");
+	waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+	String Video2Username=getText(MPWAHomePage.objUserNameInFeedScreen);
+	TimeStampBack(1);
+	waitTime(5000);
+	
+	TimeStampclick(MPWADiscoverPage.objListOfVideos(3),"3 rd video");
+	waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+	String Video3Username=getText(MPWAHomePage.objUserNameInFeedScreen);
+	TimeStampBack(1);
+	waitTime(5000);
+
+	Time_ExcelUpdate.TestCaseSummaryNode1("1 st video is from  "+Video1Username);
+	extent.extentLogger("","Top videos 1 st video name fetched");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("2 nd video is from "+Video2Username);
+extent.extentLogger("","MPWA - Top videos 2nd video name fetched");
+
+	Time_ExcelUpdate.TestCaseSummaryNode1("3 rd video is from "+Video3Username);
+	extent.extentLogger("","MPWA - Top videos 3rd video name fetched");
+//	
+	}else {
+		Time_ExcelUpdate.TestCaseIDNode(TCID);
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Videos not present");
+		extent.extentLoggerFail("","MPWA - Videos  not present");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Videos  not present");
+//		extent.extentLoggerFail("","Videos  not present");
+	}
+//	waitTime(4000);
+//	PartialSwipe("UP", 1);
+	Time_ExcelUpdate.ModuleNode("MPWA - Top Hashtag Section: "+SearchItem);
+////	TimeStampSwipeTillElement(IOSHiPiNeoDiscoverPage.objiosHashtagSectionUnderTopresults, "Hashtags");
+	waitTime(3000);
+	if(TimeStampverifyElementExist(MPWADiscoverPage.objListOfHashhtags(1), "Hashtags")) {
+		
+		Hashtags1=getText(MPWADiscoverPage.objListOfHashhtags(1));
+		System.out.println(Hashtags1);
+		Hashtags2=getText(MPWADiscoverPage.objListOfHashhtags(2));
+		System.out.println(Hashtags2);
+		waitTime(3000);
+		
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("1."+Hashtags1);
+		extent.extentLogger("","1 st Hashtag fetched");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("2."+Hashtags2);
+		extent.extentLogger("","2 nd Hashtag fetched");
+		
+		
+	}else {
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Hashtag  not present");
+		logger.info("MPWA - Hashtag  not present");
+		
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Hashtag  not present");
+//		extent.extentLoggerFail("","Hashtag  not present");
+	}
+//	
+//	
+	waitTime(5000);
+	TimeStampclick(MPWADiscoverPage.objUsersButton, "User Tab");
+	waitUntilElementDisplayed(MPWADiscoverPage.objListUserProfile(1), 5);
+	Time_ExcelUpdate.ModuleNode("Users Section: "+SearchItem);
+	if(TimeStampverifyElementExist(MPWADiscoverPage.objListUserProfile(1), "Results under Users Tab")) {
+	waitTime(3000);
+	String UsersProfile1=getText(MPWADiscoverPage.objListUserProfile(1));
+	String UsersProfile2=getText(MPWADiscoverPage.objListUserProfile(2));
+	String UsersProfile3=getText(MPWADiscoverPage.objListUserProfile(3));
+	String UsersProfile4=getText(MPWADiscoverPage.objListUserProfile(4));
+	String UsersProfile5=getText(MPWADiscoverPage.objListUserProfile(5));
+	
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("1."+UsersProfile1);
+	extent.extentLogger("","1 st Result under Users Tab");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("2."+UsersProfile2);
+	extent.extentLogger("","2 nd Result under Users Tab");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("3."+UsersProfile3);
+	extent.extentLogger("","3rd Result under Users Tab");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("4."+UsersProfile4);
+	extent.extentLogger("","4th Result under Users Tab");
+	
+	Time_ExcelUpdate.TestCaseSummaryNode1("5."+UsersProfile5);
+	extent.extentLogger("","5 th Result under Users Tab");
+	
+	
+	}else {
+	
+		//Time_ExcelUpdate.TestCaseSummaryNode1("Users tap result  not present");
+		extent.extentLoggerFail("","MPWA - Users tap result  not present");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Users tap result  not present");
+		extent.extentLoggerFail("","MPWA - Users tap result  not present");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Users tap result  not present");
+		extent.extentLoggerFail("","MPWA - Users tap result  not present");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Users tap result  not present");
+		extent.extentLoggerFail("","MPWA - Users tap result  not present");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Users tap result  not present");
+		extent.extentLoggerFail("","MPWA - Users tap result  not present");
+		
+	}
+	
+/*	
+	waitTime(5000);
+	
+	Time_ExcelUpdate.ModuleNode("Videos Section: "+SearchItem);
+	Time_ExcelUpdate.TestCaseSummaryNode1("Videos section in search Result: "+SearchItem);
+	
+
+		TimeStampclick(MPWADiscoverPage.objVideosButton, "Video Tab");
+		waitTime(3000);	
+
+		if(TimeStampverifyElementExist(MPWADiscoverPage.objListOfVideosInVideoStab(1),"Videos Result")){
+		waitTime(3000);
+		TimeStampclick(MPWADiscoverPage.objListOfVideosInVideoStab(1),"1 st video");
+		waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+		Video1=getText(MPWAHomePage.objUserNameInFeedScreen);
+		TimeStampBack(1);
+		waitUntilElementDisplayed(MPWADiscoverPage.objListOfVideosInVideoStab(1), 10);
+		
+		TimeStampclick(MPWADiscoverPage.objListOfVideosInVideoStab(2),"2nd video");
+		waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+		 Video2=getText(MPWAHomePage.objUserNameInFeedScreen);
+		TimeStampBack(1);
+		waitUntilElementDisplayed(MPWADiscoverPage.objListOfVideosInVideoStab(1), 10);
+		
+		TimeStampclick(MPWADiscoverPage.objListOfVideosInVideoStab(3),"3 rd video");
+		waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+		 Video3=getText(MPWAHomePage.objUserNameInFeedScreen);
+		TimeStampBack(1);
+		waitUntilElementDisplayed(MPWADiscoverPage.objListOfVideosInVideoStab(1), 10);
+		TimeStampclick(MPWADiscoverPage.objListOfVideosInVideoStab(4),"4 th video");
+		waitUntilElementDisplayed(MPWAHomePage.objUserNameInFeedScreen, 5);
+		Video4=getText(MPWAHomePage.objUserNameInFeedScreen);
+		TimeStampBack(1);
+		waitUntilElementDisplayed(MPWADiscoverPage.objListOfVideosInVideoStab(1), 10);
+
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("1 st video is from  "+Video1);
+		extent.extentLogger(""," in videos section 1 st video name fetched");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("2 nd video is from "+Video2);
+		extent.extentLogger(""," in videos section 2 nd video name fetched");
+		
+		
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("3 rd video is from "+Video3);
+		extent.extentLogger(""," in videos section 3 rd video name fetched");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("4 th video is from "+Video4);
+		extent.extentLogger(""," in videos section 4 th video name fetched");
+		}else {
+			
+			Time_ExcelUpdate.TestCaseSummaryNode1("Videos  not present");
+			extent.extentLoggerFail("","Videos  not present");
+			
+			
+		}
+*/
+		waitTime(5000);
+	
+	Time_ExcelUpdate.ModuleNode("MPWA - HashTag Section: "+SearchItem);
+	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - HashTag Section in Search results: "+SearchItem);
+	
+////	TimeStampverifyElementExist(IOSHiPiNeoDiscoverPage.objiosTabnameInDiscoverSearchResultsPage("Hashtags"), "HashTags Tab in search result ");
+////		TimeStampclick(IOSHiPiNeoDiscoverPage.objiosTabnameInDiscoverSearchResultsPage("Hashtags"), "Hashtags");
+		TimeStampclick(MPWADiscoverPage.objHashhtagsButton, "Hashtags Tab");	
+		waitUntilElementDisplayed(MPWADiscoverPage.objListofFirstHashtags(1), 5);
+		if(TimeStampverifyElementExist(MPWADiscoverPage.objListofFirstHashtags(1), "Hashtag result")) {
+		String HashTag1=getText(MPWADiscoverPage.objListofFirstHashtags(1));
+		System.out.println(HashTag1);
+		String HashTag2=getText(MPWADiscoverPage.objListofFirstHashtags(2));
+		System.out.println(HashTag2);
+		
+		String HashTag3=getText(MPWADiscoverPage.objListofFirstHashtags(3));
+		System.out.println(HashTag3);
+		
+		String HashTag4=getText(MPWADiscoverPage.objListofFirstHashtags(4));
+		System.out.println(HashTag4);
+		
+		String HashTag5=getText(MPWADiscoverPage.objListofFirstHashtags(5));
+		System.out.println(HashTag5);
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("1. "+HashTag1);
+		extent.extentLogger("","MPWA -  in HashTag section 1 st HashTag name fetched");
+		
+		Time_ExcelUpdate.TestCaseSummaryNode1("2. "+HashTag2);
+		extent.extentLogger("","MPWA -  in HashTag section 2 nd HashTag name fetched");
+		
+
+		Time_ExcelUpdate.TestCaseSummaryNode1("3. "+HashTag3);
+		extent.extentLogger("","MPWA -  in HashTag section 3 rd HashTag name fetched");
+		
+
+		Time_ExcelUpdate.TestCaseSummaryNode1("4. "+HashTag4);
+		extent.extentLogger("","MPWA -  in HashTag section 4 th HashTag name fetched");
+		
+
+		Time_ExcelUpdate.TestCaseSummaryNode1("5. "+HashTag5);
+		extent.extentLogger("","MPWA -  in HashTag section 5 th HashTag name fetched");
+		
+		
+		}else {
+			
+			Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - HashTag  not present");
+			extent.extentLoggerFail("","MPWA - HashTag  not present");
+			
+			
+		}
+//		TimeStampBack(1);
+//		waitTime(5000);
+//		TimeStampBack(1);
+//		waitTime(5000);
+		TimeStampnavigateToHomePage();
+		
+		
+}
 }//click(HipiHomePage.objDescription,"User handle");
 //waitUntilElementDisplayed(HipiProfilePage.objProfileHeader,10);

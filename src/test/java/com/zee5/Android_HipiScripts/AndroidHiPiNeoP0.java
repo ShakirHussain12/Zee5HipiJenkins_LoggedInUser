@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.business.zee.AndroidHipiMPWABusinessLogic;
 import com.excel.Time_ExcelUpdate;
 import com.utility.Utilities;
 import com.zee5.Applicaster.HIPI.HipiHomePage;
@@ -251,9 +252,88 @@ public class AndroidHiPiNeoP0 {
 	
 	}
 		
+	
+	//////////////////////////////////////////////MPWA BROWSERSTACK//////////////////////////////////////////////////////////////////
+	
+	@Test(priority = 21)
+	@Parameters({ "userType"})
+	public void mpwaBrowserStackStart(String userType) throws Exception{
 		
+		Zee5ApplicasterHipiNeoBusinessLogic.mpwaStart();
+		
+	}
+	
+	@Test(priority = 22)
+	@Parameters({ "userType"})
+	public void mpwaLaunchAppTime(String userType) throws Exception{
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.launchApptimeBrowserStack();
+		Zee5ApplicasterHipiNeoBusinessLogic.launchApp_And_Check_ProgressBarBrowserStack();	
+	}
+	
+	//@Test(priority = 23)
+	@Parameters({ "userType"})
+	public void mpwaSwipeAfterNextVideo(String userType) throws Exception{
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.SwipeUpForNextVideoAnimation(userType);
+		
+	}
+	
+	@Test(priority = 24)
+	@Parameters({ "userType"})
+	public void mpwaDiscoverScreenLoadTime(String userType) throws Exception{
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.MpwaDiscoverScreenLoadTime();
+		
+	}
+	
+	@Test(priority = 25)
+	@Parameters({ "userType"})
+	public void AutoSuggestionTimeMpwa(String userType) throws Exception {
 
+		Zee5ApplicasterHipiNeoBusinessLogic.AutoSuggestionTimeMpwa("kundali");
+
+	}
 		
+	@Test(priority = 26)
+	@Parameters({ "userType"})
+	public void OnClickingBannerScreenLoadTimeMPWA(String userType) throws Exception {
+
+		Zee5ApplicasterHipiNeoBusinessLogic.OnClickingBannerScreenLoadTimeMpwa(userType);
+
+	}
+
+	@Test(priority = 27)
+	@Parameters({ "userType"})
+	public void hashtagDetailPageTimeMpwa(String userType) throws Exception {
+
+		Zee5ApplicasterHipiNeoBusinessLogic.hashtagDetailPageTimeMPWA();
+
+	}
+	
+	@Test(priority = 28)
+	@Parameters({ "userType"})
+	public void SearchScreenTimePostSearchingAKeywordMpwa(String userType) throws Exception {
+
+		Zee5ApplicasterHipiNeoBusinessLogic.SearchScreenTimePostSearchingAKeywordMpwa("kundali");
+		
+	}
+	
+	//@Test(priority = 29)
+	@Parameters({ "userType"})
+	public void SearchMpwa(String userType) throws Exception {
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("Love","MPWA  TC012");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("shraddha arya","MPWA  TC013");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("punjabi singers","MPWA  TC014");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("Nora Fatehi","MPWA  TC015");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("punjabi videos", "MPWA  TC016");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("funny video", "MPWA  TC017");
+		//AndroidHipiMPWABusinessLogic.searchResults("xxx", "MPWA  TC015");
+	}
+	
 //	@Test(priority = 1)
 	@Parameters({ "userType"})
 	public void FailP0TCs(String userType) throws Exception {

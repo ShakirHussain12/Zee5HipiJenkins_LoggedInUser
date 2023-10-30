@@ -16,7 +16,7 @@ public class Android_MWEB {
 	public void AppLaunch() throws Exception {
 		System.out.println("Launching MWEB App");
 		Utilities.relaunch = true; // Clear App Data on First Launch
-		AndroidHipiMPWABusinessLogic = new com.business.zee.AndroidHipiMPWABusinessLogic("Chrome");
+		AndroidHipiMPWABusinessLogic = new com.business.zee.AndroidHipiMPWABusinessLogic("zee");
 		
 	}
 	
@@ -29,11 +29,11 @@ public class Android_MWEB {
 //		AndroidHipiMPWABusinessLogic.getURl("https://www.hipi.co.in/hashtag-feed/hipikaromorekaro");
 //		Thread.sleep(5000);
 		AndroidHipiMPWABusinessLogic.launchApptime();	
-//		AndroidHipiMPWABusinessLogic.launchApp_And_Check_ProgressBar();
-//		AndroidHipiMPWABusinessLogic.verifyProgressBar();
+	AndroidHipiMPWABusinessLogic.launchApp_And_Check_ProgressBar();
+	AndroidHipiMPWABusinessLogic.verifyProgressBar();
 
 	}
-	/*
+	
 	@Test(priority = 1)
 	@Parameters({ "userType"})
 	public void Login(String userType) throws Exception {
@@ -130,7 +130,7 @@ public class Android_MWEB {
 		AndroidHipiMPWABusinessLogic.relaunch(false);
 		AndroidHipiMPWABusinessLogic.TimeStamplogOut();
 	}
-*/
+
 	
 	
 	

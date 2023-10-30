@@ -425,7 +425,7 @@ public class HipiLoginPage {
 			   public static By objmailSubmit = By.xpath("//*[@resource-id='refreshbut']");
 			   
 			   //yopmail inbox
-			   public static By objInbox = By.xpath("//*[contains(@text,'OTP')]");
+			   public static By objInbox = By.xpath("(//*[@class='android.widget.Button' and contains(@text,'OTP')])[1]");
 			   
 }
 				 

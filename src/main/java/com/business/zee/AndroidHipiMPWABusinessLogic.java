@@ -1235,7 +1235,7 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 			}
 		}
 	}
-	public void launchApptime() throws Exception {
+	public  void launchApptime() throws Exception {
 
 		Time_ExcelUpdate.TestCaseIDNode("MPWA TC001");
 		//			Time_ExcelUpdate.SlNoNode("1");
@@ -1244,17 +1244,9 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
 		extent.HeaderChildNode("Launching hipi PWA");
 		
-		
-		  AndroidDriver driver = (AndroidDriver)getDriver();
-	    Map<String, Object> params = new HashMap();
-
-	    params.put("url", "https://hipi.co.in");
-
-	        params.put("package", "com.android.chrome");
-	        driver.executeScript("mobile:deepLink", new Object[]{params});
-		//			extent.HeaderChildNode("Launch hipi app");
-	    
-	    
+		//new com.business.zee.Zee5ApplicasterHipiNeoBusinessLogic("zee");
+		  //AndroidDriver driver = (AndroidDriver)getDriver();
+	   
 		//getURl("https://hipi.co.in/");
 		Instant start = Instant.now();
 		//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);
@@ -1263,7 +1255,9 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		//			waitTime(10000);
 		//			TimeStampSwipe("UP", 1);
 		//			waitTime(4000);
-		waitUntilElementDisplayed(MPWAHomePage.objUnmute, 20);		
+		
+		//clickElementWithWebLocator(MPWAHomePage.objForYou);
+		waitUntilElementDisplayed(MPWAHomePage.objForYou, 20);		
 		//			screencapture();
 		Instant end = Instant.now();
 		Duration timeElapsed = Duration.between(start, end);
@@ -1659,7 +1653,7 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 	}
 
 
-	public void launchApp_And_Check_ProgressBar() throws Exception {
+	public  void launchApp_And_Check_ProgressBar() throws Exception {
 		Time_ExcelUpdate.TestCaseIDNode("MPWA TC002");
 		//			Time_ExcelUpdate.SlNoNode("1");
 		Time_ExcelUpdate.ModuleNode("FeedArrival");
@@ -1668,9 +1662,6 @@ public class AndroidHipiMPWABusinessLogic extends Utilities {
 		extent.HeaderChildNode("Launching hipi and check Progress bar");
 
 		//			extent.HeaderChildNode("Launch hipi app");
-		getDriver().quit();
-		waitTime(3000);
-		new Zee5ApplicasterHipiNeoBusinessLogic("Chrome");
 
 		Instant start = Instant.now();
 		//			extent.extentLogger("", "clicked on hipi at Time----- "+ start);

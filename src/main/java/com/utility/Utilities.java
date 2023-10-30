@@ -42,6 +42,7 @@ import com.excel.Time_ExcelUpdate;
 import com.extent.ExtentReporter;
 import com.google.common.collect.Ordering;
 import com.graphbuilder.curve.Point;
+import com.hipi.AndroidMPWAPages.MPWAHomePage;
 import com.propertyfilereader.PropertyFileReader;
 import com.zee5.AndroidHipiPages.HipiDiscoverPage;
 import com.zee5.AndroidHipiPages.HipiLoginPage;
@@ -141,7 +142,7 @@ public class Utilities extends ExtentReporter {
 	public static JavascriptExecutor js;
 
 	public void initDriver() {
-		if (getPlatform().equals("Web")) {
+		if (getPlatform().equals("Web") ) {
 			wait = new WebDriverWait(getWebDriver(), getTimeout());
 			js = (JavascriptExecutor) getWebDriver();
 		} else if (getPlatform().equals("Android") || getPlatform().equals("HIPI") || getPlatform().equals("BrowserStackGuest") || getPlatform().equals("BrowserStackLogged")
@@ -3286,7 +3287,7 @@ try {
 	public void TimeStampnavigateToHomePage() throws Exception {
 		boolean flag;
 		for (int i = 1; i < 10; i++) {
-			flag = verifyElementDisplayed(HipiHomePage.objForYou);
+			flag = verifyElementDisplayed(MPWAHomePage.objForYou);
 			
 			//For You is display its store in T
 			////For You is NOT display its store in F
@@ -3304,8 +3305,8 @@ try {
 				waitTime(2000);
 			}
 		}
-		if(TimeStampverifyElementExist(HipiHomePage.objHomeIcon, "Home Icon")) {
-			click(HipiHomePage.objHomeIcon, "Home icon");
+		if(TimeStampverifyElementExist(MPWAHomePage.objHomeIcon, "Home Icon")) {
+			click(MPWAHomePage.objHomeIcon, "Home icon");
 			System.out.println("User is able to see Home page");
 		}else {
 			TimeStamprelaunch(false);
@@ -3605,7 +3606,7 @@ try {
 			
 			int starty = y;
 		
-			touchAction.press(PointOption.point(startx, starty)).perform().release();
+			touchAction.tap(PointOption.point(startx, starty)).perform();
 
 
 			logger.info("Tapped on Screen for "+ i +" time");
