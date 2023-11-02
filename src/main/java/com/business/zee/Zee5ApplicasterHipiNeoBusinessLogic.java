@@ -41,6 +41,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Keyboard;
@@ -57400,6 +57401,9 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	    driver.executeScript("mobile:deepLink", new Object[]{params});
 	
 	waitTime(3000);
+	if(waitUntilElementDisplayed(HipiLoginPage.objAcceptCookies,5)) {
+		click(HipiLoginPage.objAcceptCookies,"Accept cookies");
+	}
 	click(HipiLoginPage.objEmailInput,"Yopmail email input");
 	waitTime(3000);
 	type(HipiLoginPage.objEmailInput,randomMail,"Yopmail email input");
@@ -57464,7 +57468,7 @@ public void mpwaStart() throws Exception{
 	        params.put("package", "com.android.chrome");
 	   getDriver().executeScript("mobile:deepLink", new Object[]{params});
 	   
-	   
+	   getDriver().rotate(ScreenOrientation.PORTRAIT);
 		waitUntilElementDisplayed(MPWAHomePage.objForYou, 20);
 		waitTime(15000);
 			//JSClick(MPWAHomePage.objAcceptAllCookies,"Accept all cookies");

@@ -430,6 +430,8 @@ public class HipiLoginPage {
 			   //inside inbox
 			   public static By objFirstMail = By.xpath("(//*[@class='android.widget.TextView' and contains(@text,'Hipi')])[1]");
 			   
+			   //Accept cookies
+			   public static By objAcceptCookies = By.xpath("//*[contains(@text,'Accept Recommended')]");
 }
 				 
 

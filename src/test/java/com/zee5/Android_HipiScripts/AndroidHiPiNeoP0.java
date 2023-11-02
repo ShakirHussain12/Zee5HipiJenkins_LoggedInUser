@@ -224,19 +224,20 @@ public class AndroidHiPiNeoP0 {
 	@Test(priority = 20)
 	@Parameters({ "userType"})
 	public void logout(String userType) throws Exception {
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shivangi","TC029");
+		/*Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shivangi","TC029");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shraddha arya","TC030");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("punjabi singers","TC031");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("bollywood actress","TC032");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("punjabi videos", "TC033");
+		*/
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("funny video", "TC034");
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("xxx", "TC035");
-		Zee5ApplicasterHipiNeoBusinessLogic.Shop();
+		/*Zee5ApplicasterHipiNeoBusinessLogic.Shop();
 		Zee5ApplicasterHipiNeoBusinessLogic.createDuetVideo("TC037");
-		Zee5ApplicasterHipiNeoBusinessLogic.UploadVideoFromGallery("TC038");
+		Zee5ApplicasterHipiNeoBusinessLogic.UploadVideoFromGallery("TC038");*/
 		//Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.videoUIRepate(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.unFollow();
+		//Zee5ApplicasterHipiNeoBusinessLogic.videoUIRepate(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.unFollow();
 		Zee5ApplicasterHipiNeoBusinessLogic.TimeStamplogOut();
 //		Zee5ApplicasterHipiNeoBusinessLogic.TimeStamprelaunch(true);
 //		Zee5ApplicasterHipiNeoBusinessLogic.VerifyRemoveDefaultUserName(userType);

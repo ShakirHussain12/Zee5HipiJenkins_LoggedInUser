@@ -113,8 +113,9 @@
       <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0">
         <methods>
           <include name="Login"/>
-          <include name="videoNextTime__90Sec"/>
-          <include name="CreatorPlatformSoundScreenLoadTime"/>
+          <include name="logout"/>
+          <include name="mpwaBrowserStackStart"/>
+          <include name="mpwaLaunchAppTime"/>
         </methods>
       </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP0 -->
     </classes>
