@@ -48569,6 +48569,7 @@ public void shopPageBySwipeTheDownTheBottomUpSheet__T2390__T2397(String userType
 //		extent.HeaderChildNode("<b>Effect download Processing time: " + processingTime+"<b>");
 		Time_ExcelUpdate.TestCaseSummaryNode1("Effects screen is loaded");
 		extent.extentLogger("", "Effects screen is loaded");
+		TimeStampBack(2);
 		}else {
 			String Username = getParameterFromXML("NonsubscribedUserName");
 			Time_ExcelUpdate.TestCaseSummaryNode1("Effects screen is not loaded"+ Username + getListOfDevicesConnected());
