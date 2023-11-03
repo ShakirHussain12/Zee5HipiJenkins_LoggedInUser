@@ -151,7 +151,6 @@ public class DriverInstance extends Drivertools {
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		capabilities.setCapability("browserstack.user", getBSuserID());
 		capabilities.setCapability("browserstack.key", getBSuserKey());
-		capabilities.setCapability("browserstack.deviceOrientation", "portrait");
 		/*if (getPlatform().equals("BrowserStackMPWA")) {
 			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 			return capabilities;

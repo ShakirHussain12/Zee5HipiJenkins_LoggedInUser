@@ -2,7 +2,7 @@
 <testng-results total="0" passed="0" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-02T12:57:26Z" name="BrowserStackLogged" finished-at="2023-11-02T12:57:26Z" duration-ms="0">
+  <suite started-at="2023-11-03T09:28:27Z" name="BrowserStackLogged" finished-at="2023-11-03T09:28:27Z" duration-ms="0">
     <groups>
     </groups>
   </suite> <!-- BrowserStackLogged -->

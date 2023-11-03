@@ -50567,29 +50567,25 @@ public void verifyContentLanguageScreenUI(String userType) throws Exception {
 		//9152104924
 		
 		//getDriver().get("https://yopmail.com/en/");
-		/*boolean flag = false;
+		boolean flag = false;
 		for (int i = 1; i < 10; i++) {
-			flag = verifyElementDisplayed(MPWAHomePage.objForYou);
+			click(AMDHomePage.objProfileIcon,"Profile icon");
+			flag = verifyElementDisplayed(HipiLoginPage.objUsePhoneOrEmail);
 			
 			//For You is display its store in T
 			////For You is NOT display its store in F
 //			Back(1);
 			System.out.println(flag);
 			if (flag) {
-				if (verifyElementDisplayed(HipiShopPage.objInThisVideo)) {
-					TimeStampBack(1);
-					click(HipiHomePage.objHomeIcon, "Home icon");
-					waitTime(3000);
-				}
-				break;
+				waitTime(5000);
+				String randEmail = signUpWithRandomMail();
+				randomEmailOtp(randEmail);
 			} else {
-				TimeStampBack(1);
-				waitTime(2000);
+				Back(1);
+				waitUntilElementDisplayed(HipiHomePage.objForYou,10);
+				break;
 			}
-		}*/
-		waitTime(5000);
-		String randEmail = signUpWithRandomMail();
-		randomEmailOtp(randEmail);
+		}
 		
 		/*
 		waitUntilElementDisplayed(AMDHomePage.objProfileIcon, 10);
@@ -57411,6 +57407,7 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	click(HipiLoginPage.objmailSubmit,"submit");
 	waitTime(6000);
 	click(HipiLoginPage.objInbox,"First mail");
+	
 	waitUntilElementDisplayed(HipiLoginPage.objFirstMail,10);
 	String otp = getDriver().findElement(HipiLoginPage.objFirstMail).getText().substring(0,4);
 	System.out.println(otp);
@@ -57434,7 +57431,7 @@ public void randomEmailOtp(String randomMail) throws Exception{
 
 public String signUpWithRandomMail() throws Exception{
 	
-	click(AMDHomePage.objProfileIcon,"Profile icon");
+	
 	waitUntilElementDisplayed(HipiLoginPage.objUsePhoneOrEmail,10);
 	click(HipiLoginPage.objUsePhoneOrEmail,"Use Phone or Email option");
 	waitUntilElementDisplayed(HipiLoginPage.objSignUpScreenTittle,10);
