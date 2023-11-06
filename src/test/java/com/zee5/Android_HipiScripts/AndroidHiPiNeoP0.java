@@ -224,11 +224,11 @@ public class AndroidHiPiNeoP0 {
 	@Test(priority = 20)
 	@Parameters({ "userType"})
 	public void logout(String userType) throws Exception {
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Urfi","TC029");
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Pride Of South","TC030");
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Cooking","TC031");
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Dance Video","TC032");
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Comedy", "TC033");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Love","TC029");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("shraddha arya","TC030");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("punjabi singers","TC031");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("Nora Fatehi","TC032");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("funny video", "TC033");
 		
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("funny video", "TC034");
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("xxx", "TC035");
@@ -326,7 +326,7 @@ public class AndroidHiPiNeoP0 {
 	@Test(priority = 29)
 	@Parameters({ "userType"})
 	public void SearchMpwa(String userType) throws Exception {
-		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("Love","MPWA  TC012");
+		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("Nora Fatehi","MPWA  TC012");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("shraddha arya","MPWA  TC013");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("punjabi singers","MPWA  TC014");
 		Zee5ApplicasterHipiNeoBusinessLogic.searchResultsMpwa("Nora Fatehi","MPWA  TC015");

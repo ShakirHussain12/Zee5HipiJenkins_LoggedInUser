@@ -57405,7 +57405,7 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	waitTime(3000);
 	type(HipiLoginPage.objEmailInput,randomMail,"Yopmail email input");
 	click(HipiLoginPage.objmailSubmit,"submit");
-	waitTime(6000);
+	waitTime(3000);
 	click(HipiLoginPage.objInbox,"First mail");
 	
 	waitUntilElementDisplayed(HipiLoginPage.objFirstMail,10);
@@ -57880,7 +57880,7 @@ public void searchResultsMpwa(String SearchItem,String TCID) throws Exception {
 	
 	Time_ExcelUpdate.ModuleNode("MPWA - Top Videos Section:"+SearchItem);
 	Time_ExcelUpdate.TestCaseSummaryNode1("MPWA - Top Videos Result:"+SearchItem);
-	
+	waitTime(5000);
 ////	PartialSwipe("UP", 1);
 //	if(TimeStampverifyElementExist(HipiDiscoverPage.objListOfVideos(1), "Videos in under Top section ")) {
 //	Video1=getText(HipiDiscoverPage.objListOfVideos(1));
