@@ -57398,7 +57398,7 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	    driver.executeScript("mobile:deepLink", new Object[]{params});
 	
 	waitTime(3000);
-	if(waitUntilElementDisplayed(HipiLoginPage.objAcceptCookies,5)) {
+	if(waitUntilElementDisplayed(HipiLoginPage.objAcceptCookies,2)) {
 		click(HipiLoginPage.objAcceptCookies,"Accept cookies");
 	}
 	click(HipiLoginPage.objEmailInput,"Yopmail email input");
