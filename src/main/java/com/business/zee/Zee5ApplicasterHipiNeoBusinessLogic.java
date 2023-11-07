@@ -57401,6 +57401,10 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	if(waitUntilElementDisplayed(HipiLoginPage.objAcceptCookies,2)) {
 		click(HipiLoginPage.objAcceptCookies,"Accept cookies");
 	}
+	if(waitUntilElementDisplayed(HipiLoginPage.objCaptcha,2)) {
+		System.out.println("CAPTCHA popup shows up");
+		driver.executeScript("mobile:deepLink", new Object[]{params});
+	}
 	click(HipiLoginPage.objEmailInput,"Yopmail email input");
 	waitTime(3000);
 	type(HipiLoginPage.objEmailInput,randomMail,"Yopmail email input");

@@ -434,6 +434,8 @@ public class HipiLoginPage {
 			   public static By objAcceptCookies = By.xpath("//*[contains(@text,'Accept Recommended')]");
 			   
 			   public static By objRobot = By.xpath("//*[contains(@text,'robot')]");
+			   
+			   public static By objCaptcha = By.xpath("//*[contains(@text,'CAPTCHA')]");
 }
 				 
 
