@@ -232,9 +232,9 @@ public class AndroidHiPiNeoP0 {
 		
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("funny video", "TC034");
 //		Zee5ApplicasterHipiNeoBusinessLogic.searchResults("xxx", "TC035");
-		/*Zee5ApplicasterHipiNeoBusinessLogic.Shop();
+		Zee5ApplicasterHipiNeoBusinessLogic.Shop();
 		Zee5ApplicasterHipiNeoBusinessLogic.createDuetVideo("TC037");
-		Zee5ApplicasterHipiNeoBusinessLogic.UploadVideoFromGallery("TC038");*/
+		Zee5ApplicasterHipiNeoBusinessLogic.UploadVideoFromGallery("TC038");
 		//Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.videoUIRepate(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.unFollow();
